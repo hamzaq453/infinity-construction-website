@@ -49,21 +49,24 @@ const About = () => {
               />
 
               {/* Experience Overlay */}
+              <div className="absolute pt-0 pl-0 pr-5 pb-5 top-0 rounded-br-full bg-background  left-0 ">
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="absolute top-0 left-0 border-r-8 border-b-8 bg-accent-orange  p-6 shadow-lg border-background"
+                className="bg-accent-orange  pr-16 pb-16 pl-5 rounded-br-full py-3 shadow-lg border-background leading-tight"
               >
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-white font-josefin-sans">
+                <div className="text-center flex flex-col items-center justify-center">
+                  <div className="text-6xl font-bold text-white font-josefin-sans">
                     10+
                   </div>
-                  <div className="text-sm text-white/90 font-montserrat">
-                    Years Of Experience
+                  <div className="text-sm leading-tight text-white/90 font-montserrat">
+                    Years Of<br></br>Experience
                   </div>
                 </div>
               </motion.div>
+              </div>
             </div>
           </motion.div>
 
