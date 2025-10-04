@@ -113,11 +113,11 @@ const Hero = () => {
             <motion.button
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0 20px 40px rgba(251, 124, 71, 0.4)"
+                boxShadow: "0 20px 40px rgba(3, 93, 157, 0.4)"
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('#contact')}
-              className="bg-accent-orange hover:bg-accent-orange/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center gap-3"
+              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center gap-3"
             >
               <motion.span
                 className="relative z-10"
@@ -127,12 +127,12 @@ const Hero = () => {
                 Get Free Quote
               </motion.span>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-accent-orange to-orange-500 opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-r from-primary to-primary opacity-0 group-hover:opacity-100"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "0%" }}
                 transition={{ duration: 0.3 }}
               />
-              <HiArrowRight className="w-5 h-5 relative z-10" />
+              <HiArrowRight className="w-5 text-bold h-5 relative z-10" />
             </motion.button>
 
             {/* Secondary CTA */}
@@ -140,7 +140,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('#portfolio')}
-              className="bg-transparent border-2 border-primary text-foreground hover:bg-primary/10 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center gap-3 group"
+              className="bg-transparent border-2 border-accent-orange text-foreground hover:bg-primary/10 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center gap-3 group"
             >
               <HiPlay className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
               View Our Work
