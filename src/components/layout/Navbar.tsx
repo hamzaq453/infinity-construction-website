@@ -84,7 +84,9 @@ const Navbar = () => {
                       onMouseLeave={() => setIsServicesDropdownOpen(false)}
                     >
                       <motion.button
-                        whileHover={{ y: -2 }}
+                        initial="initial"
+                        whileHover="hover"
+                        animate="initial"
                         whileTap={{ y: 0 }}
                         className="flex items-center space-x-1 text-foreground text-montserrat transition-all duration-300 font-medium relative px-3 py-2 rounded-lg"
                       >
@@ -100,9 +102,10 @@ const Navbar = () => {
                         {/* Animated border effect */}
                         <motion.div
                           className="absolute inset-0 border-2 border-primary rounded-lg pointer-events-none"
-                          initial={{ opacity: 0, scale: 0.75 }}
-                          whileHover={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          variants={{
+                            initial: { opacity: 0, scale: 0.75, y: 0 },
+                            hover: { opacity: 1, scale: 1, y: -2 }
+                          }}
                         />
                       </motion.button>
 
@@ -118,14 +121,23 @@ const Navbar = () => {
                             {item.dropdown.map((dropdownItem, index) => (
                               <motion.button
                                 key={dropdownItem.name}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{
-                                  delay: index * 0.1,
-                                  duration: 0.2,
-                                }}
-                                whileHover={{
-                                  backgroundColor: "rgba(3, 93, 157, 0.1)",
+                                initial="initial"
+                                animate="visible"
+                                whileHover="hover"
+                                variants={{
+                                  initial: { opacity: 0, x: -20 },
+                                  visible: { 
+                                    opacity: 1, 
+                                    x: 0,
+                                    transition: {
+                                      delay: index * 0.1,
+                                      duration: 0.2,
+                                    }
+                                  },
+                                  hover: { 
+                                    backgroundColor: "rgba(3, 93, 157, 0.1)",
+                                    transition: { duration: 0.2 }
+                                  }
                                 }}
                                 onClick={() =>
                                   scrollToSection(dropdownItem.href)
@@ -135,9 +147,10 @@ const Navbar = () => {
                                 {/* Animated arrow on the left */}
                                 <motion.div
                                   className="absolute left-6 w-4 h-4 flex items-center justify-center"
-                                  initial={{ opacity: 0, x: -8 }}
-                                  whileHover={{ opacity: 1, x: 0 }}
-                                  transition={{ duration: 0.2 }}
+                                  variants={{
+                                    initial: { opacity: 0, x: -8 },
+                                    hover: { opacity: 1, x: 0 }
+                                  }}
                                 >
                                   <svg
                                     className="w-4 h-4 text-primary"
@@ -155,8 +168,10 @@ const Navbar = () => {
                                 </motion.div>
                                 <motion.span
                                   className="relative z-10"
-                                  whileHover={{ x: 24 }}
-                                  transition={{ duration: 0.2 }}
+                                  variants={{
+                                    initial: { x: 0 },
+                                    hover: { x: 24 }
+                                  }}
                                 >
                                   {dropdownItem.name}
                                 </motion.span>
@@ -168,7 +183,9 @@ const Navbar = () => {
                     </div>
                   ) : (
                     <motion.button
-                      whileHover={{ y: -2 }}
+                      initial="initial"
+                      whileHover="hover"
+                      animate="initial"
                       whileTap={{ y: 0 }}
                       onClick={() => scrollToSection(item.href)}
                       className="text-foreground tracking-wider transition-all duration-300 font-medium relative px-3 py-2 rounded-lg"
@@ -177,9 +194,10 @@ const Navbar = () => {
                       {/* Animated border effect */}
                       <motion.div
                         className="absolute inset-0 border-2 border-primary rounded-lg pointer-events-none"
-                        initial={{ opacity: 0, scale: 0.75 }}
-                        whileHover={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        variants={{
+                          initial: { opacity: 0, scale: 0.75, y: 0 },
+                          hover: { opacity: 1, scale: 1, y: -2 }
+                        }}
                       />
                     </motion.button>
                   )}

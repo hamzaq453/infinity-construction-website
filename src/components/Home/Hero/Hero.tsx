@@ -117,7 +117,7 @@ const Hero = () => {
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('#contact')}
-              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center gap-3"
+              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center gap-3 hover:bg-accent"
             >
               <motion.span
                 className="relative z-10"
