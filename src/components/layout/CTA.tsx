@@ -22,7 +22,7 @@ const CTA = () => {
       />
       
       {/* Dark Overlay for better text contrast */}
-      <div className="absolute inset-0 bg-background/5 backdrop-blur-[1.5px]" />
+      <div className="absolute inset-0 bg-background/5 backdrop-blur-[2px]" />
       
       {/* Gradient Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/30" />
