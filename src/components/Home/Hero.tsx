@@ -10,9 +10,9 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   
   const strings = [
-    { text: "Building Dreams", color: "text-accent-orange" },
+    { text: "Building Dreams", color: "text-royal" },
     { text: "Creating Excellence", color: "text-primary" },
-    { text: "Delivering Quality", color: "text-accent-orange" },
+    { text: "Delivering Quality", color: "text-royal" },
     { text: "Transforming Spaces", color: "text-primary" },
   ];
 
@@ -140,7 +140,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('#portfolio')}
-              className="bg-transparent border-2 border-accent-orange text-foreground hover:bg-primary/10 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center gap-3 group"
+              className="bg-transparent border-2 border-royal text-foreground hover:bg-primary/10 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center gap-3 group"
             >
               <HiPlay className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
               View Our Work

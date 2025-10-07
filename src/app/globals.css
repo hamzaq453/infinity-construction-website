@@ -4,21 +4,21 @@
   /* --background:#171717 ; */
   --foreground: #ffffff;
   --primary-blue: #035D9D;
-  --accent-blue: #03388F;
-  --secondary-blue: #053969;
-  --deep-blue: #061C48;
-  --background: #101720;
-  --accent-orange: #FB7C47;
+  --royal-blue: #03388F;
+  --dark-blue: #053969;
+  --navy-blue: #061C48;
+  --background: #101D26;
+  /* Removed --accent-orange: #FB7C47; */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary-blue);
-  --color-accent: var(--accent-blue);
-  --color-secondary: var(--secondary-blue);
-  --color-deep: var(--deep-blue);
-  --color-accent-orange: var(--accent-orange);
+  --color-royal: var(--royal-blue);
+  --color-dark: var(--dark-blue);
+  --color-navy: var(--navy-blue);
+  /* Removed --color-accent-orange: var(--accent-orange); */
   /* --color-background-dark: var(--background-dark); */
 
   --font-josefin-sans: var(--font-josefin-sans);
