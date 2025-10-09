@@ -102,12 +102,12 @@ const CTA = () => {
               whileHover={{ 
                 scale: 1.05,
                 backgroundColor: "rgba(3, 93, 157, 0.1)",
-                borderColor: "rgba(251, 124, 71, 0.8)",
+                borderColor: "rgba(3, 93, 157, 0.1)",
                 y: -2
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("#contact")}
-              className="bg-transparent border-1 border-accent-orange hover:border-accent-orange text-foreground hover:text-accent-orange px-8 py-4 rounded-lg font-semibold transition-all duration-300 relative overflow-hidden group flex items-center justify-center space-x-3 min-w-[200px] backdrop-blur-sm"
+              className="bg-transparent border-1 border-white/30 hover:border-primary text-white hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 relative overflow-hidden group flex items-center justify-center space-x-3 min-w-[200px] backdrop-blur-sm"
             >
               <motion.span
                 className="relative z-10 text-lg font-montserrat"
@@ -117,7 +117,7 @@ const CTA = () => {
                 Schedule Now
               </motion.span>
               <motion.div
-                className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-r from-primary to-royal opacity-0 group-hover:opacity-100"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "0%" }}
                 transition={{ duration: 0.3 }}
