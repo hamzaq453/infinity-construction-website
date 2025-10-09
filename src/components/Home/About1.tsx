@@ -44,7 +44,7 @@ const About1 = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 font-josefin-sans leading-tight"
           >
-            At Infinity Construction, we specialize in delivering reliable, innovative, and high-quality construction services.
+            At <span className="text-primary">Infinity Construction</span>, we specialize in delivering reliable, innovative, and high-quality construction services.
           </motion.h2>
 
           {/* Description */}

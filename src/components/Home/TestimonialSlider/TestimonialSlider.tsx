@@ -94,12 +94,16 @@ const SwiperExample: React.FC = () => {
           <div className="">
             <Swiper
               className="testimonialSlider"
-              modules={[Pagination, Navigation]}
+              modules={[Pagination, Navigation, Autoplay]}
               centeredSlides={false}
               initialSlide={6}
               spaceBetween={0}
               slidesPerView={2.5}
               loop={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
               pagination={{
                 clickable: true,
                 el: ".testimonials-pagination",
