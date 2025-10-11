@@ -1,0 +1,71 @@
+/* General Swiper Slide Styling */
+.projectSlider.swiper-slide {
+  display: flex;
+  width: 34%;
+  min-height: 450px !important;  
+  transition: transform 6.5s ease-in, opacity 6.5s ease-in;
+  opacity: 1;
+}
+
+/* Active Slide Styling */
+.projectSlider .swiper-slide-active {
+  transform: scale(1.15); /* Larger size for active slide */
+  z-index: 2;
+}
+
+.swiper-slide-active .dummyProjectInfo{
+  margin-bottom: 80px;
+  transition: 0.5s ease-in;
+}
+
+.dummyProjectInfo{
+  margin-bottom: 0px;
+  transition: 0.5s ease-in;
+}
+
+/* Hidden project-info by default */
+.swiper-slide .project-info {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+}
+
+/* Show project-info on active slide */
+.swiper-slide-active .project-info {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-in, transform 0.7s ease-in;
+}
+
+/* Custom Pagination Styling */
+.custom-pagination{
+  width: auto !important;
+  display: flex !important;
+  gap: 1px !important;
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-image: linear-gradient(to right, #035D9D, #03388F);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  visibility: visible !important;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-image: linear-gradient(to right, #035D9D, #03388F);
+  transform: scale(1.3);
+}
+
+@media (min-width:1560px) {
+  .projectSlider.swiper-slide {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectSlider.swiper-slide {
+    width: 60%;
+    min-height: 480px !important;
+  }
+}
