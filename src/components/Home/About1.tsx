@@ -172,7 +172,7 @@ const About1 = () => {
                   whileHover={{ y: -1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  View Our Work
+                  Our Portfolio
                 </motion.span>
                 <motion.div
                   className="absolute rounded-full inset-0 bg-gradient-to-r from-primary to-royal opacity-0 group-hover:opacity-100"
