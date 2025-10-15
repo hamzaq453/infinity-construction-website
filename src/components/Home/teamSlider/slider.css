@@ -1,0 +1,76 @@
+/* General Swiper Slide Styling */
+.teamSlider.swiper-slide {
+  display: flex;
+  width: 34%;
+  min-height: 390px !important;  
+  transition: transform 6.5s ease-in, opacity 6.5s ease-in;
+  opacity: 1;
+}
+
+/* Slide Hover Effects */
+/* .swiper-slide:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+} */
+
+/* Active Slide Styling */
+.teamSlider .swiper-slide-active {
+  transform: scale(1.15); /* Larger size for active slide */
+  z-index: 2;
+ 
+}
+.swiper-slide-active .dummyTeamInfo{
+  margin-bottom: 60px;
+  transition: 0.5s ease-in;
+}
+.dummyTeamInfo{
+  margin-bottom: 0px;
+  transition: 0.5s ease-in;
+}
+/* Hidden team-info by default */
+.swiper-slide .team-info {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+}
+
+/* Show team-info on active slide */
+.swiper-slide-active .team-info {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-in, transform 0.7s ease-in;
+}
+
+/* Custom Pagination Styling */
+
+.custom-pagination{
+  width: auto !important;
+  display: flex !important;
+  gap: 1px !important;
+}
+.custom-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-image: linear-gradient(to right, #4adede, #1aa7ec);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  visibility: visible !important;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-image: linear-gradient(to right, #4adede, #1aa7ec);
+  transform: scale(1.3);
+}
+
+@media (min-width:1560px) {
+  .teamSlider.swiper-slide {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teamSlider.swiper-slide {
+    width: 60%;
+    min-height: 420px !important;
+  }
+}
+
