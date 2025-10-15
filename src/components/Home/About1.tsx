@@ -42,9 +42,9 @@ const About1 = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 font-josefin-sans leading-tight"
+            className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-josefin-sans leading-tight"
           >
-            At <span className="text-primary">Infinity Construction</span>, we specialize in delivering reliable, innovative, and high-quality construction services.
+            At <span className="text-primary">Infinity Construction</span>, we bring multi-disciplinary engineering and construction expertise together under one roof.
           </motion.h2>
 
           {/* Description */}
@@ -54,7 +54,7 @@ const About1 = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg sm:text-xl text-foreground/80 font-montserrat max-w-4xl mx-auto leading-relaxed"
           >
-            With a dedicated team and years of experience, we turn your visions into durable, functional spaces—on time and on budget. From residential to commercial builds, Infinity Construction stands for precision, trust, and excellence in every project.
+            Backed by years of successful project delivery and a strong client base, we ensure every project is executed with precision, coordination, and cost-efficiency. Whether small or large, each build reflects our commitment to trust and excellence.
           </motion.p>
         </div>
 
@@ -140,8 +140,8 @@ const About1 = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 font-josefin-sans leading-tight"
               >
-                <span className="block">Proven Performance,</span>
-                <span className="block text-primary">Trusted Results</span>
+                <span className="">Comprehensive Solutions,</span>
+                <span className="text-primary"> Lasting Trust</span>
               </motion.h3>
 
               <motion.p
@@ -150,7 +150,7 @@ const About1 = () => {
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="text-lg text-foreground/80 font-montserrat mb-8 leading-relaxed"
               >
-                We bring experience, excellence, and client satisfaction to every project we take on.
+                We deliver every project with precision, coordination, and client satisfaction.
               </motion.p>
 
               {/* CTA Button */}
