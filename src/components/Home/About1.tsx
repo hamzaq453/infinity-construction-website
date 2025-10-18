@@ -1,7 +1,10 @@
 "use client";
-
+import React from "react";
 import { motion } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi";
+import Lottie from 'lottie-react';
+import animatedData from '../../lotties/Downloading.json'
+
 
 const About1 = () => {
   const scrollToSection = (href: string) => {
@@ -33,7 +36,7 @@ const About1 = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content Section */}
         <div className="text-center mb-16">
@@ -165,28 +168,32 @@ const About1 = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("#portfolio")}
-                className="bg-primary hover:bg-primary text-white  px-4 py-2 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-3 mx-auto lg:mx-0 min-w-[200px]"
+                className="bg-primary hover:bg-royal text-white pl-4 pr-1 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-2 mx-auto lg:mx-0 min-w-[200px]"
               >
                 <motion.span
-                  className="relative z-10 text-lg  font-montserrat"
+                  className="relative tracking-wide z-10 text-lg font-montserrat"
                   whileHover={{ y: -1 }}
                   transition={{ duration: 0.2 }}
                 >
                   Our Portfolio
                 </motion.span>
-                <motion.div
-                  className="absolute rounded-full inset-0 bg-gradient-to-r from-primary to-royal opacity-0 group-hover:opacity-100"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "0%" }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.div
+                {/* <motion.div
                   whileHover={{ x: 2 }}
                   transition={{ duration: 0.2 }}
-                  className="bg-white rounded-full p-2"
+                  className="relative z-10"
                 >
-                  <HiArrowRight className="w-5 h-5 relative z-10 text-primary" />
-                </motion.div>
+                  <HiArrowRight className="w-5 h-5" />
+                </motion.div> */}
+                
+                
+                  <Lottie
+                    animationData={animatedData}
+                    loop={true}
+                    autoplay={true}
+                    // style={{ width: 40, height: 40 }}
+                    className="w-14 h-14"
+                  />
+                
               </motion.button>
             </div>
           </motion.div>
