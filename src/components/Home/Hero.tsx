@@ -8,6 +8,12 @@ const Hero = () => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentStringIndex, setCurrentStringIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    // Hero animations should start immediately when component mounts
+    setHasAnimated(true);
+  }, []);
   
   const strings = [
     { text: "All-in-One Expertise", color: "text-royal" },

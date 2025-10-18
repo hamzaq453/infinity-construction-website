@@ -2,8 +2,34 @@
 
 import { motion } from "framer-motion";
 import { HiArrowRight, HiHome, HiOfficeBuilding, HiCog, HiUsers } from "react-icons/hi";
+import { useState, useEffect } from "react";
 
 const Service = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.querySelector('#services');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, [hasAnimated]);
   const serviceCategories = [
     {
       title: "Residential Construction",
@@ -37,7 +63,7 @@ const Service = () => {
   };
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section id="services" className="relative py-20 overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-royal/10 via-background/95 to-primary/10" />
       
@@ -68,14 +94,14 @@ const Service = () => {
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-8"
           >
             {/* Main Heading */}
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-josefin-sans leading-tight"
             >
@@ -87,7 +113,7 @@ const Service = () => {
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-foreground/80 font-montserrat leading-relaxed"
             >
@@ -98,7 +124,7 @@ const Service = () => {
           {/* Right Column - Service Categories */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
           >
@@ -108,7 +134,7 @@ const Service = () => {
               <motion.div
                   key={category.title}
                   initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                  animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
                   whileHover={{ 
                     y: -8,
@@ -126,7 +152,7 @@ const Service = () => {
                     {/* Icon */}
                     <motion.div
                       initial={{ scale: 0.8, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
+                      animate={hasAnimated ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                       transition={{ duration: 0.5, delay: 0.7 + index * 0.2 }}
                 whileHover={{ 
                         scale: 1.1, 
@@ -141,7 +167,7 @@ const Service = () => {
                     {/* Title */}
                     <motion.h3
                       initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                       transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
                       className="text-2xl font-bold text-foreground font-josefin-sans mb-4 group-hover:text-white transition-colors duration-300"
                     >
@@ -151,7 +177,7 @@ const Service = () => {
                     {/* Description */}
                     <motion.p
                       initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                       transition={{ duration: 0.6, delay: 0.9 + index * 0.2 }}
                       className="text-foreground/80 font-montserrat mb-6 leading-relaxed group-hover:text-white/90 transition-colors duration-300"
                     >
@@ -161,7 +187,7 @@ const Service = () => {
                     {/* Features List */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                       transition={{ duration: 0.6, delay: 1.0 + index * 0.2 }}
                       className="space-y-2 mb-6"
                     >
@@ -169,7 +195,7 @@ const Service = () => {
                         <motion.div
                           key={feature}
                           initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
+                          animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                           transition={{ duration: 0.4, delay: 1.1 + index * 0.2 + featureIndex * 0.1 }}
                           className="flex items-center space-x-3"
                         >
@@ -187,7 +213,7 @@ const Service = () => {
                     {/* CTA Arrow */}
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                       transition={{ duration: 0.6, delay: 1.2 + index * 0.2 }}
                       whileHover={{ x: 8 }}
                       className="flex items-center space-x-2 text-sm font-semibold font-montserrat"

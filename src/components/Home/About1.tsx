@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi";
 import Lottie from 'lottie-react';
@@ -7,6 +7,32 @@ import animatedData from '../../lotties/Downloading.json'
 
 
 const About1 = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById('about');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, [hasAnimated]);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -43,7 +69,7 @@ const About1 = () => {
           {/* Main Heading */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-josefin-sans leading-tight"
           >
@@ -53,7 +79,7 @@ const About1 = () => {
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg sm:text-xl text-foreground/80 font-montserrat max-w-4xl mx-auto leading-relaxed"
           >
@@ -66,7 +92,7 @@ const About1 = () => {
           {/* Left Side - Statistics */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="space-y-6 w-[80%]"
           >
@@ -75,7 +101,7 @@ const About1 = () => {
               {/* First Circle - Smallest */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="relative z-10 text-center"
@@ -93,7 +119,7 @@ const About1 = () => {
               {/* Second Circle - Medium */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="relative z-20 text-center -ml-4 sm:-ml-6 lg:-ml-8"
@@ -111,7 +137,7 @@ const About1 = () => {
               {/* Third Circle - Largest */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="relative z-30 text-center -ml-4 sm:-ml-6 lg:-ml-8"
@@ -131,7 +157,7 @@ const About1 = () => {
           {/* Right Side - Proven Performance */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-center lg:text-left"
           >
@@ -139,7 +165,7 @@ const About1 = () => {
             <div className="bg-background/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 lg:p-10 shadow-xl">
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 font-josefin-sans leading-tight"
               >
@@ -149,7 +175,7 @@ const About1 = () => {
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="text-lg text-foreground/80 font-montserrat mb-8 leading-relaxed"
               >
@@ -159,7 +185,7 @@ const About1 = () => {
               {/* CTA Button */}
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
                 whileHover={{
                   scale: 1.05,
