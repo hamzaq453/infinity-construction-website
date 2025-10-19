@@ -2,8 +2,35 @@
 
 import { motion } from "framer-motion";
 import { HiArrowRight, HiPhone } from "react-icons/hi";
+import { useState, useEffect } from "react";
 
 const CTA = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.querySelector('#cta');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, [hasAnimated]);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -12,7 +39,7 @@ const CTA = () => {
   };
 
   return (
-    <section className="relative min-h-[380px] flex items-center justify-center overflow-hidden">
+    <section id="cta" className="relative min-h-[380px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -34,13 +61,13 @@ const CTA = () => {
           {/* Left Side - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex-1 text-center lg:text-left"
           >
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 font-josefin-sans leading-tight"
             >
@@ -50,7 +77,7 @@ const CTA = () => {
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg sm:text-xl text-foreground/80 font-montserrat max-w-2xl mx-auto lg:mx-0"
             >
@@ -61,7 +88,7 @@ const CTA = () => {
           {/* Right Side - CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col sm:flex-row lg:flex-col gap-4 w-full sm:w-auto lg:w-auto"
           >
@@ -74,7 +101,7 @@ const CTA = () => {
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("#contact")}
-              className="bg-primary hover:bg-accent text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-3 min-w-[200px]"
+              className="bg-primary hover:bg-royal text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-3 min-w-[200px]"
             >
               <motion.span
                 className="relative z-10 text-lg font-montserrat"

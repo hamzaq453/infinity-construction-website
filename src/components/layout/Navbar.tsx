@@ -27,7 +27,6 @@ const Navbar = () => {
       dropdown: [
         { name: "Residential Construction", href: "#residential" },
         { name: "Industrial Construction", href: "#industrial" },
-        { name: "Commercial Construction", href: "#commercial" },
       ],
     },
     { name: "About", href: "#about" },
@@ -214,7 +213,7 @@ const Navbar = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("#contact")}
-                className="bg-primary hover:bg-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group text-montserrat tracking-wide"
+                className="bg-primary hover:bg-royal text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group text-montserrat tracking-wide"
               >
                 <motion.span
                   className="relative z-10"
@@ -404,7 +403,7 @@ const Navbar = () => {
                   }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => scrollToSection("#contact")}
-                  className="w-full bg-primary hover:bg-accent text-white px-6 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg relative overflow-hidden group"
+                  className="w-full bg-primary hover:bg-royal text-white px-6 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg relative overflow-hidden group"
                 >
                   <motion.span
                     className="relative z-10 text-lg"

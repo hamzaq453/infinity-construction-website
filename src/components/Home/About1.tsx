@@ -1,9 +1,38 @@
 "use client";
-
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi";
+import Lottie from 'lottie-react';
+import animatedData from '../../lotties/Downloading.json'
+
 
 const About1 = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById('about');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, [hasAnimated]);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -33,28 +62,28 @@ const About1 = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content Section */}
         <div className="text-center mb-16">
           {/* Main Heading */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 font-josefin-sans leading-tight"
+            className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-josefin-sans leading-tight"
           >
-            At <span className="text-primary">Infinity Construction</span>, we specialize in delivering reliable, innovative, and high-quality construction services.
+            At <span className="text-primary">Infinity Construction</span>, we bring multi-disciplinary engineering and construction expertise together under one roof.
           </motion.h2>
 
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg sm:text-xl text-foreground/80 font-montserrat max-w-4xl mx-auto leading-relaxed"
           >
-            With a dedicated team and years of experience, we turn your visions into durable, functional spaces—on time and on budget. From residential to commercial builds, Infinity Construction stands for precision, trust, and excellence in every project.
+            Backed by years of successful project delivery and a strong client base, we ensure every project is executed with precision, coordination, and cost-efficiency. Whether small or large, each build reflects our commitment to trust and excellence.
           </motion.p>
         </div>
 
@@ -63,7 +92,7 @@ const About1 = () => {
           {/* Left Side - Statistics */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="space-y-6 w-[80%]"
           >
@@ -72,7 +101,7 @@ const About1 = () => {
               {/* First Circle - Smallest */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="relative z-10 text-center"
@@ -90,7 +119,7 @@ const About1 = () => {
               {/* Second Circle - Medium */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="relative z-20 text-center -ml-4 sm:-ml-6 lg:-ml-8"
@@ -108,7 +137,7 @@ const About1 = () => {
               {/* Third Circle - Largest */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="relative z-30 text-center -ml-4 sm:-ml-6 lg:-ml-8"
@@ -128,7 +157,7 @@ const About1 = () => {
           {/* Right Side - Proven Performance */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-center lg:text-left"
           >
@@ -136,27 +165,27 @@ const About1 = () => {
             <div className="bg-background/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 lg:p-10 shadow-xl">
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 font-josefin-sans leading-tight"
               >
-                <span className="block">Proven Performance,</span>
-                <span className="block text-primary">Trusted Results</span>
+                <span className="">Comprehensive Solutions,</span>
+                <span className="text-primary"> Lasting Trust</span>
               </motion.h3>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="text-lg text-foreground/80 font-montserrat mb-8 leading-relaxed"
               >
-                We bring experience, excellence, and client satisfaction to every project we take on.
+                We deliver every project with precision, coordination, and client satisfaction.
               </motion.p>
 
               {/* CTA Button */}
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
                 whileHover={{
                   scale: 1.05,
@@ -165,28 +194,32 @@ const About1 = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("#portfolio")}
-                className="bg-primary hover:bg-primary text-white  px-4 py-2 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-3 mx-auto lg:mx-0 min-w-[200px]"
+                className="bg-primary hover:bg-royal text-white pl-4 pr-1 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-2 mx-auto lg:mx-0 min-w-[200px]"
               >
                 <motion.span
-                  className="relative z-10 text-lg  font-montserrat"
+                  className="relative tracking-wide z-10 text-lg font-montserrat"
                   whileHover={{ y: -1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  View Our Work
+                  Our Portfolio
                 </motion.span>
-                <motion.div
-                  className="absolute rounded-full inset-0 bg-gradient-to-r from-primary to-royal opacity-0 group-hover:opacity-100"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "0%" }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.div
+                {/* <motion.div
                   whileHover={{ x: 2 }}
                   transition={{ duration: 0.2 }}
-                  className="bg-white rounded-full p-2"
+                  className="relative z-10"
                 >
-                  <HiArrowRight className="w-5 h-5 relative z-10 text-primary" />
-                </motion.div>
+                  <HiArrowRight className="w-5 h-5" />
+                </motion.div> */}
+                
+                
+                  <Lottie
+                    animationData={animatedData}
+                    loop={true}
+                    autoplay={true}
+                    // style={{ width: 40, height: 40 }}
+                    className="w-14 h-14"
+                  />
+                
               </motion.button>
             </div>
           </motion.div>

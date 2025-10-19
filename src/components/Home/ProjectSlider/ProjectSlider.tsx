@@ -34,8 +34,8 @@ const ProjectSlider = ({ projects }: { projects: ProjectProps[] }) => {
         }}
         coverflowEffect={{
           rotate: 0,
-          stretch: -20,
-          depth: 76.5,
+          stretch: -10,
+          depth: 25,
           modifier: 2,
           slideShadows: true,
         }}
@@ -75,10 +75,10 @@ const ProjectSlider = ({ projects }: { projects: ProjectProps[] }) => {
             <div className="dummyProjectInfo"></div>
 
             {/* Project Information - Only shows on active slide */}
-            <div className="w-full absolute bottom-0 left-0 h-[45%] pt-16 project-info text-center rounded-lg transform transition-transform duration-500 ease-in-out opacity-0 translate-y-0">
+            <div className="w-full absolute bg-gradient-to-t from-primary to-transparent p-4 bottom-0 left-0 h-[25%] pt-2 project-info text-center pt-12 rounded-lg transform transition-transform duration-500 ease-in-out opacity-0 translate-y-0">
               <h3 className="text-white font-bold text-xl font-josefin-sans mb-2">{project.title}</h3>
-              <p className="text-sm text-white/90 font-montserrat mb-3 px-4">{project.description}</p>
-              <span className="inline-block bg-primary text-white px-3 py-1 rounded-full text-xs font-montserrat">
+              {/* <p className="text-sm text-white/90 font-montserrat mb-3 px-4">{project.description}</p> */}
+              <span className="inline-block bg-royal text-white px-3 py-1 rounded-full text-xs font-montserrat">
                 {project.category}
               </span>
             </div>

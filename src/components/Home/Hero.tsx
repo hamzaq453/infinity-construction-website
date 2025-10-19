@@ -8,12 +8,19 @@ const Hero = () => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentStringIndex, setCurrentStringIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    // Hero animations should start immediately when component mounts
+    setHasAnimated(true);
+  }, []);
   
   const strings = [
-    { text: "Building Dreams", color: "text-royal" },
-    { text: "Creating Excellence", color: "text-primary" },
-    { text: "Delivering Quality", color: "text-royal" },
-    { text: "Transforming Spaces", color: "text-primary" },
+    { text: "All-in-One Expertise", color: "text-royal" },
+    { text: "Coordinating Success", color: "text-primary" },
+    { text: "Cost-Effective Solutions", color: "text-royal" },
+    { text: "Building Prosperity", color: "text-primary" },
+    { text: "Trusted Partnership", color: "text-royal" },
   ];
 
   useEffect(() => {
@@ -99,7 +106,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg sm:text-xl lg:text-2xl text-foreground/90 mb-12 font-montserrat max-w-2xl mx-auto leading-relaxed"
           >
-            26+ Years of Excellence | 800+ Projects Completed
+            Unified Expertise | Proven Project Success
           </motion.p>
 
           {/* CTA Buttons */}
@@ -117,7 +124,7 @@ const Hero = () => {
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('#contact')}
-              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center gap-3 hover:bg-accent"
+              className="bg-primary hover:bg-royal text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center gap-3 hover:bg-accent"
             >
               <motion.span
                 className="relative z-10"
