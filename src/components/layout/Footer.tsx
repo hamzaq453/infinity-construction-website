@@ -49,7 +49,7 @@ const Footer = () => {
             {/* Logo and Brand */}
             <Link href="/" className="flex w-48 h-10 items-center mb-6">
               <Image
-                src="/logo1.png"
+                src="/logo.png"
                 alt="Infinity Construction"
                 width={200}
                 height={200}
