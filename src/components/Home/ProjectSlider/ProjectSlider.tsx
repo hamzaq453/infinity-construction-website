@@ -68,7 +68,7 @@ const ProjectSlider = ({ projects }: { projects: ProjectProps[] }) => {
                 src={project.src}
                 alt={project.title}
                 layout="fill"
-                objectFit="cover"
+                // objectFit="cover"
                 className="rounded-lg transition-transform duration-300"
               />
             </div>

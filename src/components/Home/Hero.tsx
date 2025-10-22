@@ -62,14 +62,14 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: 'url(/hero.jpeg)',
+        backgroundImage: 'url(/hero4.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
     >
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-background/30 backdrop-blur-xs" />
+      <div className="absolute inset-0 bg-background/50 backdrop-blur-xs" />
       
       {/* Gradient Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/40" />
@@ -84,7 +84,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl  lg:text-7xl font-bold text-foreground mb-6 font-josefin-sans"
           >
-            <span className="block mb-2">Infinity Construction</span>
+            <span className="block mb-2 text-4xl sm:text-5xl lg:text-6xl ">Infinity Construction Company</span>
             <div className="min-h-[1.2em] flex items-center justify-center">
               <span className={`${strings[currentStringIndex].color}`}>
                 {displayedText}

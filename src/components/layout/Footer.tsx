@@ -4,6 +4,7 @@ import { useState } from "react";
 import { HiArrowRight, HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -24,12 +25,10 @@ const Footer = () => {
   ];
 
   const navigationLinks = [
-    "About Us",
-    "Blog", 
-    "Services",
-    "Marketing",
-    "Testimonial",
-    "Contact Us"
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Contact Us", href: "/contact" }
   ];
 
   const socialLinks = [
@@ -48,14 +47,14 @@ const Footer = () => {
           {/* Company Information */}
           <div className="lg:col-span-1">
             {/* Logo and Brand */}
-            <div className="flex w-48 h-10 items-center mb-6">
+            <Link href="/" className="flex w-48 h-10 items-center mb-6">
               <Image
                 src="/logo1.png"
                 alt="Infinity Construction"
                 width={200}
                 height={200}
               />
-            </div>
+            </Link>
 
             {/* Description */}
             <p className="text-foreground/70 text-sm leading-relaxed mb-6 font-montserrat">
@@ -65,13 +64,12 @@ const Footer = () => {
             {/* Social Media Links */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
-                <a
+                <Link href={social.href} target="_blank"
                   key={social.label}
-                  href={social.href}
                   className="w-10 h-10 bg-primary/10 hover:bg-primary rounded-full flex items-center justify-center text-primary hover:text-white transition-all duration-300 border border-primary/20 hover:border-primary"
                 >
                   <social.icon className="w-5 h-5" />
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -102,14 +100,13 @@ const Footer = () => {
             <h4 className="text-lg font-bold text-foreground mb-6 font-josefin-sans">
               Quick Links
             </h4>
-            <ul className="space-y-3">
+            <ul className="flex flex-col space-y-2 font-montserrat">
               {navigationLinks.map((link, index) => (
-                <li
-                  key={link}
-                  className="text-sm text-foreground/70 hover:text-primary transition-colors duration-300 cursor-pointer font-montserrat"
+                <Link href={link.href} className="text-sm text-foreground/70 hover:text-primary transition-colors duration-300 cursor-pointer "
+                  key={link.name}
                 >
-                  {link}
-                </li>
+                  {link.name}
+                </Link>
               ))}
             </ul>
           </div>
@@ -169,13 +166,13 @@ const Footer = () => {
             </p>
             
             <div className="flex items-center space-x-4 text-sm text-foreground/60 font-montserrat">
-              <a href="#" className="hover:text-primary transition-colors duration-300">
+              <Link href="/terms-and-conditions" className="hover:text-primary transition-colors duration-300">
                 Terms & Condition
-              </a>
+              </Link>
               <span className="text-primary/30">|</span>
-              <a href="#" className="hover:text-primary transition-colors duration-300">
+              <Link href="/privacy-policy" className="hover:text-primary transition-colors duration-300">
                 Privacy Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
