@@ -65,7 +65,7 @@ const Navbar = () => {
                 className="text-foreground hover:text-primary transition-colors duration-300 z-10"
               >
                 <Image
-                  src="/logo1.png"
+                  src="/logo.png"
                   alt="Infinity Construction"
                   width={200}
                   height={200}
