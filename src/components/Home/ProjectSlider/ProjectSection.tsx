@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ProjectSlider from "./ProjectSlider";
+import { HiArrowRight } from "react-icons/hi";
 
 const ProjectSection: React.FC = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -18,7 +19,7 @@ const ProjectSection: React.FC = () => {
       { threshold: 0.1 }
     );
 
-    const section = document.querySelector('#portfolio');
+    const section = document.querySelector("#portfolio");
     if (section) {
       observer.observe(section);
     }
@@ -32,35 +33,62 @@ const ProjectSection: React.FC = () => {
   // Sample project data - you can replace this with your actual project data
   const projectData = [
     {
-      src: "/sevice1.jpeg", // You can add more project images to your public folder
+      src: "/portfolio/pic1.png", // You can add more project images to your public folder
       title: "Modern Residential Complex",
-      description: "A stunning residential development featuring contemporary design and sustainable building practices.",
-      category: "Residential"
+      description:
+        "A stunning residential development featuring contemporary design and sustainable building practices.",
+      category: "Reside ntial",
     },
     {
-      src: "/about.jpg",
+      src: "/portfolio/pic2.png",
       title: "Commercial Office Building",
-      description: "State-of-the-art commercial space designed for maximum efficiency and employee comfort.",
-      category: "Commercial"
+      description:
+        "State-of-the-art commercial space designed for maximum efficiency and employee comfort.",
+      category: "Commercial",
     },
     {
-      src: "/hero.jpeg",
+      src: "/portfolio/pic3.png",
       title: "Industrial Warehouse",
-      description: "Large-scale industrial facility built to meet modern manufacturing and storage requirements.",
-      category: "Industrial"
+      description:
+        "Large-scale industrial facility built to meet modern manufacturing and storage requirements.",
+      category: "Industrial",
     },
     {
-      src: "/cta.jpg",
+      src: "/portfolio/pic4.png",
       title: "Luxury Hotel Project",
-      description: "Premium hospitality project featuring world-class amenities and architectural excellence.",
-      category: "Hospitality"
+      description:
+        "Premium hospitality project featuring world-class amenities and architectural excellence.",
+      category: "Hospitality",
     },
     {
-      src: "/sevice1.jpeg",
+      src: "/portfolio/pic5.png",
       title: "Educational Campus",
-      description: "Modern educational facility designed to foster learning and innovation for future generations.",
-      category: "Education"
-    }
+      description:
+        "Modern educational facility designed to foster learning and innovation for future generations.",
+      category: "Education",
+    },
+    {
+      src: "/portfolio/pic6.png",
+      title: "Educational Campus",
+      description:
+        "Modern educational facility designed to foster learning and innovation for future generations.",
+      category: "Education",
+    },
+    {
+      src: "/portfolio/pic7.png",
+      title: "Educational Campus",
+      description:
+        "Modern educational facility designed to foster learning and innovation for future generations.",
+      category: "Education",
+    },
+    {
+      src: "/portfolio/pic8.png",
+      title: "Educational Campus",
+      description:
+        "Modern educational facility designed to foster learning and innovation for future generations.",
+      category: "Education",
+    },
+    
   ];
 
   return (
@@ -77,14 +105,15 @@ const ProjectSection: React.FC = () => {
             <span className="block">Our Recent</span>
             <span className="block text-primary">Projects</span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg text-foreground/80 font-montserrat max-w-3xl mx-auto"
           >
-            Explore our portfolio of successful construction projects that showcase our expertise and commitment to excellence.
+            Explore our portfolio of successful construction projects that
+            showcase our expertise and commitment to excellence.
           </motion.p>
         </div>
 
@@ -93,6 +122,22 @@ const ProjectSection: React.FC = () => {
           <ProjectSlider projects={projectData} />
         </div>
       </div>
+        <div className="flex justify-center">
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 20px 40px rgba(3, 93, 157, 0.3)",
+              y: -2,
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-primary hover:bg-royal text-white px-4 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg flex items-center justify-center  hover:shadow-xl relative overflow-hidden group gap-2  mx-auto lg:mx-0 min-w-[200px] mt-10 font-montserrat"
+          >
+            View All Projects <HiArrowRight className="w-5 h-5 relative z-10" />
+          </motion.button>
+        </div>
     </section>
   );
 };

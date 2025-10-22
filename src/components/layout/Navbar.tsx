@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX, HiChevronDown } from "react-icons/hi";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,18 +21,18 @@ const Navbar = () => {
   }, []);
 
   const menuItems = [
-    { name: "Home", href: "#home" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     {
       name: "Services",
-      href: "#services",
+      href: "/services",
       dropdown: [
         { name: "Residential Construction", href: "#residential" },
         { name: "Industrial Construction", href: "#industrial" },
       ],
     },
-    { name: "About", href: "#about" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Contact", href: "#contact" },
+
+    { name: "Portfolio", href: "/portfolio" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -59,8 +60,8 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo/Company Name */}
             <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0">
-              <button
-                onClick={() => scrollToSection("#home")}
+              <Link
+                href="/"
                 className="text-foreground hover:text-primary transition-colors duration-300 z-10"
               >
                 <Image
@@ -69,7 +70,7 @@ const Navbar = () => {
                   width={200}
                   height={200}
                 />
-              </button>
+              </Link>
             </motion.div>
 
             {/* Desktop Menu */}
@@ -103,7 +104,7 @@ const Navbar = () => {
                           className="absolute inset-0 border-2 border-primary rounded-lg pointer-events-none"
                           variants={{
                             initial: { opacity: 0, scale: 0.75, y: 0 },
-                            hover: { opacity: 1, scale: 1, y: -2 }
+                            hover: { opacity: 1, scale: 1, y: -2 },
                           }}
                         />
                       </motion.button>
@@ -125,18 +126,18 @@ const Navbar = () => {
                                 whileHover="hover"
                                 variants={{
                                   initial: { opacity: 0, x: -20 },
-                                  visible: { 
-                                    opacity: 1, 
+                                  visible: {
+                                    opacity: 1,
                                     x: 0,
                                     transition: {
                                       delay: index * 0.1,
                                       duration: 0.2,
-                                    }
+                                    },
                                   },
-                                  hover: { 
+                                  hover: {
                                     backgroundColor: "rgba(3, 93, 157, 0.1)",
-                                    transition: { duration: 0.2 }
-                                  }
+                                    transition: { duration: 0.2 },
+                                  },
                                 }}
                                 onClick={() =>
                                   scrollToSection(dropdownItem.href)
@@ -148,7 +149,7 @@ const Navbar = () => {
                                   className="absolute left-6 w-4 h-4 flex items-center justify-center"
                                   variants={{
                                     initial: { opacity: 0, x: -8 },
-                                    hover: { opacity: 1, x: 0 }
+                                    hover: { opacity: 1, x: 0 },
                                   }}
                                 >
                                   <svg
@@ -169,7 +170,7 @@ const Navbar = () => {
                                   className="relative z-10"
                                   variants={{
                                     initial: { x: 0 },
-                                    hover: { x: 24 }
+                                    hover: { x: 24 },
                                   }}
                                 >
                                   {dropdownItem.name}
@@ -181,24 +182,26 @@ const Navbar = () => {
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <motion.button
-                      initial="initial"
-                      whileHover="hover"
-                      animate="initial"
-                      whileTap={{ y: 0 }}
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-foreground tracking-wider transition-all duration-300 font-medium relative px-3 py-2 rounded-lg"
-                    >
-                      <span className="relative z-10">{item.name}</span>
-                      {/* Animated border effect */}
-                      <motion.div
-                        className="absolute inset-0 border-2 border-primary rounded-lg pointer-events-none"
-                        variants={{
-                          initial: { opacity: 0, scale: 0.75, y: 0 },
-                          hover: { opacity: 1, scale: 1, y: -2 }
-                        }}
-                      />
-                    </motion.button>
+                    <Link href={item.href}>
+                      <motion.button
+                        initial="initial"
+                        whileHover="hover"
+                        animate="initial"
+                        whileTap={{ y: 0 }}
+                        onClick={() => scrollToSection(item.href)}
+                        className="text-foreground tracking-wider transition-all duration-300 font-medium relative px-3 py-2 rounded-lg"
+                      >
+                        <span className="relative z-10">{item.name}</span>
+                        {/* Animated border effect */}
+                        <motion.div
+                          className="absolute inset-0 border-2 border-primary rounded-lg pointer-events-none"
+                          variants={{
+                            initial: { opacity: 0, scale: 0.75, y: 0 },
+                            hover: { opacity: 1, scale: 1, y: -2 },
+                          }}
+                        />
+                      </motion.button>
+                    </Link>
                   )}
                 </div>
               ))}
@@ -206,29 +209,31 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <div className="hidden lg:block">
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(3, 93, 157, 0.3)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection("#contact")}
-                className="bg-primary hover:bg-royal text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group text-montserrat tracking-wide"
-              >
-                <motion.span
-                  className="relative z-10"
-                  whileHover={{ y: -1 }}
-                  transition={{ duration: 0.2 }}
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 20px 40px rgba(3, 93, 157, 0.3)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => scrollToSection("#contact")}
+                  className="bg-primary hover:bg-royal text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group text-montserrat tracking-wide"
                 >
-                  Free Consultation
-                </motion.span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "0%" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.button>
+                  <motion.span
+                    className="relative z-10"
+                    whileHover={{ y: -1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Free Consultation
+                  </motion.span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "0%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -371,55 +376,59 @@ const Navbar = () => {
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <motion.button
-                      whileHover={{ x: 5 }}
-                      whileTap={{ x: 0 }}
-                      onClick={() => scrollToSection(item.href)}
-                      className="block w-full text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-3 text-lg relative group"
-                    >
-                      <span className="relative z-10">{item.name}</span>
-                      <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-primary"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      />
-                    </motion.button>
+                    <Link href={item.href}>
+                      <motion.button
+                        whileHover={{ x: 5 }}
+                        whileTap={{ x: 0 }}
+                        onClick={() => scrollToSection(item.href)}
+                        className="block w-full text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-3 text-lg relative group"
+                      >
+                        <span className="relative z-10">{item.name}</span>
+                        <motion.div
+                          className="absolute bottom-0 left-0 h-0.5 bg-primary"
+                          initial={{ width: 0 }}
+                          whileHover={{ width: "100%" }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                        />
+                      </motion.button>
+                    </Link>
                   )}
                 </motion.div>
               ))}
 
               {/* Mobile CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.3 }}
-                className="pt-6"
-              >
-                <motion.button
-                  whileHover={{
-                    scale: 1.02,
-                    boxShadow: "0 10px 30px rgba(3, 93, 157, 0.3)",
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => scrollToSection("#contact")}
-                  className="w-full bg-primary hover:bg-royal text-white px-6 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg relative overflow-hidden group"
+              <Link href="/contact">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.3 }}
+                  className="pt-6"
                 >
-                  <motion.span
-                    className="relative z-10 text-lg"
-                    whileHover={{ y: -1 }}
-                    transition={{ duration: 0.2 }}
+                  <motion.button
+                    whileHover={{
+                      scale: 1.02,
+                      boxShadow: "0 10px 30px rgba(3, 93, 157, 0.3)",
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => scrollToSection("#contact")}
+                    className="w-full bg-primary hover:bg-royal text-white px-6 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg relative overflow-hidden group"
                   >
-                    Free Consultation
-                  </motion.span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.button>
-              </motion.div>
+                    <motion.span
+                      className="relative z-10 text-lg"
+                      whileHover={{ y: -1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Free Consultation
+                    </motion.span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "0%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.button>
+                </motion.div>
+              </Link>
             </div>
           </motion.div>
         )}

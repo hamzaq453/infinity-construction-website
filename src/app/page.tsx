@@ -4,6 +4,7 @@ import About1 from '@/components/Home/About1';
 import Testimonials from '@/components/Home/TestimonialSlider/Testimonial';
 import Service from '@/components/Home/Service';
 import ProjectSection from '@/components/Home/ProjectSlider/ProjectSection';
+import Project1 from '@/components/Home/Project/Project1';
 export default function Home() {
   return (
     <>
@@ -13,7 +14,8 @@ export default function Home() {
         {/* <About/> */}
         <About1/>
         <Service/>
-        <ProjectSection />
+        {/* <ProjectSection /> */}
+        <Project1 />
         <Testimonials/>
       </main>
       {/* <Footer /> */}
