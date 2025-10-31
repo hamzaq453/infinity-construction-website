@@ -1,26 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import CompanyIntroduction from "@/components/about/CompanyIntroduction";
-import VisionMission from "../../components/about/VisionMission";
-import CoreValues from "../../components/about/CoreValues";
-import OurExpertise from "../../components/about/OurExpertise";
-import JourneyExcellence from "../../components/about/JourneyExcellence";
-import WhyChooseUs from "../../components/about/WhyChooseUs";
+import CoreValues from "../../components/abouts/CoreValues";
+import OurExpertise from "../../components/abouts/OurExpertise";
+
 import CEOSection from "@/components/abouts/CEO";
 import Offer from "@/components/abouts/Offer";
+import AboutHeroVariant3 from "@/components/abouts/AboutHero";
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <motion.section
+      {/* <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="relative py-32 px-4 sm:px-6 lg:px-8"
       >
-        {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             animate={{
@@ -85,7 +82,8 @@ const AboutPage = () => {
             </motion.p>
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+         <AboutHeroVariant3/>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
@@ -95,28 +93,23 @@ const AboutPage = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="space-y-20"
         >
-          {/* Company Introduction */}
-          {/* <CompanyIntroduction /> */}
+          
+       
 
           {/* Core Values */}
           <CoreValues />
 
-          <CEOSection />
-
           <Offer />
 
-          {/* Vision & Mission */}
-          {/* <VisionMission /> */}
+          <CEOSection />
+
+
 
 
           {/* Our Expertise */}
           <OurExpertise />
 
-          {/* Journey of Excellence */}
-          {/* <JourneyExcellence /> */}
-
-          {/* Why Choose Us */}
-          {/* <WhyChooseUs /> */}
+         
         </motion.div>
       </div>
     </div>

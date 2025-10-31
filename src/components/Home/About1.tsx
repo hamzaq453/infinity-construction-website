@@ -218,7 +218,7 @@ const About1 = () => {
                   y: -2,
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-primary hover:bg-royal text-white pl-4 pr-1 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-2 mx-auto lg:mx-0 min-w-[200px]"
+                className="bg-primary hover:bg-royal text-white pl-4 pr-1 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-2 mx-auto lg:mx-0 min-w-[200px]"
               >
                 <a
                   href="/portfolio/portfolio.pdf"
