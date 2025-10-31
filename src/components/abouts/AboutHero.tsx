@@ -100,7 +100,7 @@ const AboutHeroVariant3: React.FC = () => {
                     boxShadow: "0 20px 40px rgba(3, 93, 157, 0.3)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto px-6 sm:px-8 md:px-12 py-4 sm:py-4 md:py-7 bg-gradient-to-r from-primary to-royal text-white rounded-xl font-semibold text-base sm:text-lg tracking-wide relative overflow-hidden group shadow-lg hover:shadow-xl font-montserrat"
+                  className="w-full sm:w-auto px-6 py-4  bg-gradient-to-r from-primary to-royal text-white rounded-xl font-semibold text-base sm:text-lg tracking-wide relative overflow-hidden group shadow-lg hover:shadow-xl font-montserrat"
                 >
                   <span className="relative z-10">Explore Our Projects</span>
 
@@ -119,7 +119,7 @@ const AboutHeroVariant3: React.FC = () => {
                   boxShadow: "0 20px 40px rgba(3, 93, 157, 0.3)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto border border-primary text-white px-4 sm:pl-4 sm:pr-1 sm:py-4 md:py-7 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-2 sm:space-x-2 min-w-full sm:min-w-[200px]"
+                className="w-full sm:w-auto border border-primary text-white px-4 sm:pl-4 sm:pr-1 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-2 sm:space-x-2 min-w-full sm:min-w-[200px]"
               >
                 <a
                   href="/portfolio/portfolio.pdf"

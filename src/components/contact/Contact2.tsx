@@ -2,17 +2,25 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  HiMail, 
-  HiPhone, 
+import {
+  HiMail,
+  HiPhone,
   HiUser,
   HiChatAlt2,
   HiCheckCircle,
   HiExclamationCircle,
+  HiSparkles,
   HiLocationMarker,
-  HiClock
+  HiClock,
 } from "react-icons/hi";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube, FaGithub } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+  FaGithub,
+} from "react-icons/fa";
 
 const Contact2 = () => {
   const [formData, setFormData] = useState({
@@ -21,26 +29,30 @@ const Contact2 = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     setIsSubmitting(false);
     setSubmitStatus("success");
-    
+
     // Reset form after success
     setTimeout(() => {
       setFormData({
@@ -53,46 +65,52 @@ const Contact2 = () => {
   };
 
   const socialLinks = [
-    { icon: FaFacebookF, href: "#", color: "hover:text-blue-600", label: "Facebook" },
-    { icon: FaTwitter, href: "#", color: "hover:text-blue-400", label: "Twitter" },
-    { icon: FaLinkedinIn, href: "#", color: "hover:text-blue-700", label: "LinkedIn" },
-    { icon: FaInstagram, href: "#", color: "hover:text-pink-500", label: "Instagram" },
-    { icon: FaYoutube, href: "#", color: "hover:text-red-600", label: "YouTube" },
-    { icon: FaGithub, href: "#", color: "hover:text-gray-400", label: "GitHub" }
+    {
+      icon: FaFacebookF,
+      href: "https://www.facebook.com/InfinityCCPK",
+      color: "hover:text-blue-600",
+      label: "Facebook",
+    },
+    {
+      icon: FaTwitter,
+      href: "https://twitter.com/infinityCCPK",
+      color: "hover:text-blue-400",
+      label: "Twitter",
+    },
+    {
+      icon: FaLinkedinIn,
+      href: "https://www.linkedin.com/company/infinityccpk",
+      color: "hover:text-blue-700",
+      label: "LinkedIn",
+    },
+    {
+      icon: FaInstagram,
+      href: "https://www.instagram.com/infinityccpk/",
+      color: "hover:text-pink-500",
+      label: "Instagram",
+    }
   ];
 
   const contactInfo = [
     {
       icon: HiMail,
       label: "Email",
-      value: "info@infinityconstruction.com",
-      href: "mailto:info@infinityconstruction.com"
+      value: "infinityconstructioncompany@gmail.com",
+      href: "mailto:infinityconstructioncompany@gmail.com",
     },
     {
       icon: HiPhone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
-    },
-    {
-      icon: HiLocationMarker,
-      label: "Location",
-      value: "New York, NY",
-      href: "#"
-    },
-    {
-      icon: HiClock,
-      label: "Hours",
-      value: "Mon - Fri: 8AM - 6PM",
-      href: "#"
+      value: "03218413284",
+      href: "tel:03218413284",
     }
   ];
 
   return (
     <div className="min-h-screen bg-background py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -114,7 +132,81 @@ const Contact2 = () => {
           >
             Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </motion.p>
-        </motion.div>
+        </motion.div> */}
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8"
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full mb-6"
+              >
+                <HiSparkles className="w-5 h-5 text-primary" />
+                <span className="text-primary font-medium font-montserrat">
+                  Get In Touch
+                </span>
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-5xl md:text-7xl font-bold text-foreground mb-6 font-josefin-sans"
+              >
+                Let's Build Something
+                <br />
+                <span className="bg-gradient-to-r from-primary to-royal bg-clip-text text-transparent">
+                  Amazing Together
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="text-xl text-foreground/70 max-w-3xl mx-auto font-montserrat"
+              >
+                Ready to transform your vision into reality? Our expert team is
+                here to bring your construction dreams to life with precision,
+                quality, and innovation.
+              </motion.p>
+            </div>
+
+            {/* Stats Section */}
+            {/* <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="text-center p-6 bg-background/30 backdrop-blur-sm border border-primary/20 rounded-2xl hover:border-primary/40 transition-all duration-300"
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                  className="text-3xl md:text-4xl font-bold text-primary mb-2 font-josefin-sans"
+                >
+                  {stat.number}
+                </motion.div>
+                <div className="text-foreground/70 font-montserrat">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div> */}
+          </div>
+        </motion.section>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form - Minimal Design */}
@@ -141,10 +233,7 @@ const Contact2 = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               {/* Name Field */}
-              <motion.div
-                whileFocus={{ scale: 1.02 }}
-                className="group"
-              >
+              <motion.div whileFocus={{ scale: 1.02 }} className="group">
                 <label className="block text-sm font-medium text-foreground/80 mb-2 font-montserrat">
                   Name
                 </label>
@@ -163,10 +252,7 @@ const Contact2 = () => {
               </motion.div>
 
               {/* Email Field */}
-              <motion.div
-                whileFocus={{ scale: 1.02 }}
-                className="group"
-              >
+              <motion.div whileFocus={{ scale: 1.02 }} className="group">
                 <label className="block text-sm font-medium text-foreground/80 mb-2 font-montserrat">
                   Email
                 </label>
@@ -185,10 +271,7 @@ const Contact2 = () => {
               </motion.div>
 
               {/* Message Field */}
-              <motion.div
-                whileFocus={{ scale: 1.02 }}
-                className="group"
-              >
+              <motion.div whileFocus={{ scale: 1.02 }} className="group">
                 <label className="block text-sm font-medium text-foreground/80 mb-2 font-montserrat">
                   Message
                 </label>
@@ -210,9 +293,9 @@ const Contact2 = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
-                  boxShadow: "0 10px 30px rgba(3, 93, 157, 0.2)"
+                  boxShadow: "0 10px 30px rgba(3, 93, 157, 0.2)",
                 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full bg-primary hover:bg-royal text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed font-montserrat"
@@ -225,7 +308,11 @@ const Contact2 = () => {
                     <>
                       <motion.div
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
                         className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
                       />
                       <span>Sending...</span>
@@ -237,7 +324,7 @@ const Contact2 = () => {
                     </>
                   )}
                 </motion.span>
-                
+
                 {submitStatus === "success" && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -250,7 +337,7 @@ const Contact2 = () => {
                     </div>
                   </motion.div>
                 )}
-                
+
                 {submitStatus === "error" && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -301,6 +388,7 @@ const Contact2 = () => {
                   transition={{ duration: 0.4, delay: 0.1 * index }}
                   whileHover={{ scale: 1.02, x: 5 }}
                   className="block p-4 bg-transparent border border-foreground/10 rounded-lg hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 group"
+                  target="_blank"
                 >
                   <div className="flex items-center space-x-4">
                     <motion.div
@@ -311,8 +399,12 @@ const Contact2 = () => {
                       <info.icon className="w-5 h-5" />
                     </motion.div>
                     <div>
-                      <p className="text-sm text-foreground/60 font-montserrat">{info.label}</p>
-                      <p className="text-foreground font-medium font-montserrat">{info.value}</p>
+                      <p className="text-sm text-foreground/60 font-montserrat">
+                        {info.label}
+                      </p>
+                      <p className="text-foreground font-medium font-montserrat">
+                        {info.value}
+                      </p>
                     </div>
                   </div>
                 </motion.a>
@@ -337,14 +429,15 @@ const Contact2 = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: 0.1 * index }}
-                    whileHover={{ 
-                      scale: 1.1, 
+                    whileHover={{
+                      scale: 1.1,
                       y: -2,
-                      boxShadow: "0 5px 15px rgba(0,0,0,0.1)"
+                      boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
                     }}
                     whileTap={{ scale: 0.95 }}
                     className={`p-3 rounded-lg bg-transparent border border-foreground/10 text-foreground/60 ${social.color} transition-all duration-300 hover:border-primary/30 hover:bg-primary/5 group`}
                     title={social.label}
+                    target="_blank"
                   >
                     <social.icon className="w-5 h-5 mx-auto" />
                   </motion.a>
@@ -369,7 +462,7 @@ const Contact2 = () => {
                 duration: 8 + i * 2,
                 repeat: Infinity,
                 delay: i * 1.5,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
               style={{
                 left: `${10 + i * 15}%`,

@@ -5,9 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { 
   HiEye, 
-  HiExternalLink, 
-  HiHeart,
-  HiArrowRight,
+  HiExternalLink,
   HiSparkles,
   HiOfficeBuilding,
   HiHome,
@@ -21,76 +19,95 @@ const PortfolioPage = () => {
   const portfolioImages = [
     {
       id: "pic1",
-      src: "/portfolio/pic1.png",
+      src: "/portfolio/new/Commercial-2.png",
       title: "Modern Residential Complex",
-      category: "Residential",
+      category: "Commercial",
       description: "A stunning modern residential complex featuring contemporary architecture and sustainable design.",
       size: "large", // large, medium, small
-      featured: true
+      featured: false
     },
     {
       id: "pic2", 
-      src: "/portfolio/pic2.png",
+      src: "/portfolio/new/Residential-1.png",
       title: "Commercial Office Building",
-      category: "Commercial",
+      category: "Residential",
       description: "State-of-the-art commercial office building with glass facade and modern amenities.",
       size: "medium",
       featured: false
     },
     {
       id: "pic3",
-      src: "/portfolio/pic3.png", 
+      src: "/portfolio/new/Industrial-1.jpg", 
       title: "Luxury Villa",
-      category: "Residential",
+      category: "Industrial",
       description: "Elegant luxury villa with premium finishes and panoramic views.",
       size: "medium",
       featured: false
     },
     {
       id: "pic4",
-      src: "/portfolio/pic4.png",
+      src: "/portfolio/new/Industrial-4.jpeg",
       title: "Industrial Warehouse",
       category: "Industrial", 
       description: "Massive industrial warehouse facility with advanced logistics infrastructure.",
       size: "large",
-      featured: true
+      featured: false
     },
     {
       id: "pic5",
-      src: "/portfolio/pic5.png",
+      src: "/portfolio/new/Residential-2.png",
       title: "Shopping Mall",
-      category: "Commercial",
+      category: "Residential",
       description: "Multi-level shopping mall with modern retail spaces and entertainment areas.",
       size: "medium",
       featured: false
     },
     {
       id: "pic6",
-      src: "/portfolio/pic6.png",
+      src: "/portfolio/new/Commercial-1.jpg",
       title: "Apartment Complex",
-      category: "Residential",
+      category: "Commercial",
       description: "High-rise apartment complex with premium amenities and city views.",
       size: "medium",
       featured: false
     },
     {
       id: "pic7",
-      src: "/portfolio/pic7.png",
-      title: "Corporate Headquarters",
-      category: "Commercial",
-      description: "Impressive corporate headquarters with sustainable design and green technology.",
+      src: "/portfolio/new/Residential-3.png",
+      title: "Industrial Warehouse",
+      category: "Residential",
+      description: "Massive industrial warehouse facility with advanced logistics infrastructure.",
       size: "large",
       featured: false
     },
     {
       id: "pic8",
-      src: "/portfolio/pic8.png",
-      title: "Mixed-Use Development",
-      category: "Mixed-Use",
-      description: "Innovative mixed-use development combining residential, commercial, and recreational spaces.",
-      size: "medium",
-      featured: true
+      src: "/portfolio/new/Industrial-2.jpg",
+      title: "Industrial Warehouse",
+      category: "Industrial",
+      description: "Massive industrial warehouse facility with advanced logistics infrastructure.",
+      size: "small",
+      featured: false
     },
+    {
+      id: "pic9",
+      src: "/portfolio/new/Commercial-3.png",
+      title: "Industrial Warehouse",
+      category: "Commercial",
+      description: "Massive industrial warehouse facility with advanced logistics infrastructure.",
+      size: "small",
+      featured: false
+    }
+    ,
+    {
+      id: "pic10",
+      src: "/portfolio/new/Industrial-3.jpg",
+      title: "Industrial Warehouse",
+      category: "Industrial",
+      description: "Massive industrial warehouse facility with advanced logistics infrastructure.",
+      size: "small",
+      featured: false
+    }
   ];
 
   const getImageDimensions = (size: string) => {
@@ -119,7 +136,7 @@ const PortfolioPage = () => {
     }
   };
 
-  const categories = ["All", "Residential", "Commercial", "Industrial", "Mixed-Use"];
+  const categories = ["All", "Residential", "Commercial", "Industrial"];
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredImages = activeCategory === "All" 
@@ -348,14 +365,14 @@ const PortfolioPage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
-                    className="absolute bottom-0 left-0 right-0 p-6 text-white z-10"
+                    className="absolute bottom-0 left-0 right-0 p-4 text-white z-10"
                   >
-                    <h3 className="text-lg font-bold mb-2 font-josefin-sans">
+                    <h3 className="text-lg font-bold mb-1 font-josefin-sans">
                       {image.title}
                     </h3>
-                    <p className="text-sm text-white/80 mb-3 font-montserrat line-clamp-2">
+                    {/* <p className="text-sm text-white/80 mb-3 font-montserrat line-clamp-2">
                       {image.description}
-                    </p>
+                    </p> */}
                     <div className="flex items-center justify-between">
                       <span className="text-xs bg-primary/20 px-2 py-1 rounded-full font-montserrat">
                         {image.category}

@@ -93,7 +93,7 @@ const CTA = () => {
             className="flex flex-col sm:flex-row lg:flex-col gap-4 w-full sm:w-auto lg:w-auto"
           >
             {/* Primary CTA Button - "Get Started" */}
-            <motion.button
+            {/* <motion.button
               whileHover={{ 
                 scale: 1.05, 
                 boxShadow: "0 20px 40px rgba(3, 93, 157, 0.4)",
@@ -122,10 +122,11 @@ const CTA = () => {
               >
                 <HiArrowRight className="w-5 h-5 relative z-10" />
               </motion.div>
-            </motion.button>
+            </motion.button> */}
 
             {/* Secondary CTA Button - "Schedule Now" */}
-            <motion.button
+           <a href="tel:03218413284" target="_blank">
+             <motion.button
               whileHover={{ 
                 scale: 1.05,
                 backgroundColor: "rgba(3, 93, 157, 0.1)",
@@ -141,7 +142,7 @@ const CTA = () => {
                 whileHover={{ y: -1 }}
                 transition={{ duration: 0.2 }}
               >
-                Schedule Now
+                Call Now
               </motion.span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-primary to-royal opacity-0 group-hover:opacity-100"
@@ -156,6 +157,7 @@ const CTA = () => {
                 <HiPhone className="w-5 h-5 relative z-10" />
               </motion.div>
             </motion.button>
+           </a>
           </motion.div>
         </div>
 
