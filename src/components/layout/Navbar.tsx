@@ -27,8 +27,8 @@ const Navbar = () => {
       name: "Services",
       href: "/services",
       dropdown: [
-        { name: "Residential Construction", href: "#residential" },
-        { name: "Industrial Construction", href: "#industrial" },
+        { name: "Residential Construction", href: "/residential" },
+        { name: "Industrial Construction", href: "/industrial" },
       ],
     },
 
@@ -119,6 +119,8 @@ const Navbar = () => {
                             className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-xl border border-primary/30 rounded-xl shadow-2xl overflow-hidden"
                           >
                             {item.dropdown.map((dropdownItem, index) => (
+                              <>
+                              <Link href={dropdownItem.href} key={dropdownItem.name}>
                               <motion.button
                                 key={dropdownItem.name}
                                 initial="initial"
@@ -175,7 +177,8 @@ const Navbar = () => {
                                 >
                                   {dropdownItem.name}
                                 </motion.span>
-                              </motion.button>
+                              </motion.button></Link>
+                              </>
                             ))}
                           </motion.div>
                         )}
@@ -334,6 +337,8 @@ const Navbar = () => {
                           >
                             {item.dropdown.map(
                               (dropdownItem, dropdownIndex) => (
+                                <>
+                                <Link href={dropdownItem.href} key={dropdownItem.name}>
                                 <motion.button
                                   key={dropdownItem.name}
                                   initial={{ opacity: 0, x: 20 }}
@@ -368,7 +373,8 @@ const Navbar = () => {
                                   <span className="relative z-10 group-hover:translate-x-6 transition-transform duration-200">
                                     {dropdownItem.name}
                                   </span>
-                                </motion.button>
+                                </motion.button></Link>
+                                </>
                               )
                             )}
                           </motion.div>
