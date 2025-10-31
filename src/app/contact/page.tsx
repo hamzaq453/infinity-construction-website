@@ -8,8 +8,8 @@ export default function ContactPage() {
     <>
     
     {/* <Contact1 /> */}
-    {/* <Contact2 /> */}
-    <Contact3 />
+    <Contact2 />
+    {/* <Contact3 /> */}
     <div className="mb-16 max-w-6xl mx-auto">
       <Offer/>
     </div>

@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { HiArrowRight, HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
+import {
+  HiArrowRight,
+  HiMail,
+  HiPhone,
+  HiLocationMarker,
+} from "react-icons/hi";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,32 +23,31 @@ const Footer = () => {
 
   const services = [
     "Building Construction",
-    "Architecture Design", 
+    "Architecture Design",
     "Building Renovation",
     "Flooring & Roofing",
-    "Building Maintenance"
+    "Building Maintenance",
   ];
 
   const navigationLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Portfolio", href: "/portfolio" },
-    { name: "Contact Us", href: "/contact" }
+    { name: "Contact Us", href: "/contact" },
   ];
 
   const socialLinks = [
-    { icon: FaFacebook, href: "#", label: "Facebook" },
-    { icon: FaTwitter, href: "#", label: "Twitter" },
-    { icon: FaInstagram, href: "#", label: "Instagram" },
-    { icon: FaLinkedin, href: "#", label: "LinkedIn" }
+    { icon: FaFacebook, href: "https://www.facebook.com/InfinityCCPK", label: "Facebook" },
+    { icon: FaTwitter, href: "https://twitter.com/infinityCCPK", label: "Twitter" },
+    { icon: FaInstagram, href: "https://www.instagram.com/infinityccpk/", label: "Instagram" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/company/infinityccpk", label: "LinkedIn" },
   ];
 
   return (
     <footer className="bg-background border-t border-primary/20">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          
+      <div className="w-full px-8 sm:px-7 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-2">
           {/* Company Information */}
           <div className="lg:col-span-1">
             {/* Logo and Brand */}
@@ -58,20 +62,9 @@ const Footer = () => {
 
             {/* Description */}
             <p className="text-foreground/70 text-sm leading-relaxed mb-6 font-montserrat">
-              At Infinity Construction Company, we are committed to delivering exceptional quality and unparalleled customer service.
+              At Infinity Construction Company, we are committed to delivering
+              exceptional quality and unparalleled customer service.
             </p>
-
-            {/* Social Media Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <Link href={social.href} target="_blank"
-                  key={social.label}
-                  className="w-10 h-10 bg-primary/10 hover:bg-primary rounded-full flex items-center justify-center text-primary hover:text-white transition-all duration-300 border border-primary/20 hover:border-primary"
-                >
-                  <social.icon className="w-5 h-5" />
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* Our Services */}
@@ -84,8 +77,8 @@ const Footer = () => {
                 <li
                   key={service}
                   className={`text-sm font-montserrat transition-colors duration-300 cursor-pointer ${
-                    index === 0 
-                      ? "text-primary font-semibold" 
+                    index === 0
+                      ? "text-primary font-semibold"
                       : "text-foreground/70 hover:text-primary"
                   }`}
                 >
@@ -102,7 +95,9 @@ const Footer = () => {
             </h4>
             <ul className="flex flex-col space-y-2 font-montserrat">
               {navigationLinks.map((link, index) => (
-                <Link href={link.href} className="text-sm text-foreground/70 hover:text-primary transition-colors duration-300 cursor-pointer "
+                <Link
+                  href={link.href}
+                  className="text-sm text-foreground/70 hover:text-primary transition-colors duration-300 cursor-pointer "
                   key={link.name}
                 >
                   {link.name}
@@ -113,11 +108,8 @@ const Footer = () => {
 
           {/* Newsletter Subscription */}
           <div className="lg:col-span-1">
-            <h4 className="text-lg font-bold text-foreground mb-6 font-josefin-sans">
-              Subscribe Our Newsletter
-            </h4>
-            
-            <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+
+            {/* <form onSubmit={handleNewsletterSubmit} className="space-y-4 mb-4">
               <div className="relative">
                 <input
                   type="email"
@@ -128,7 +120,7 @@ const Footer = () => {
                   required
                 />
               </div>
-              
+
               <button
                 type="submit"
                 className="w-full bg-primary hover:bg-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group flex items-center justify-center space-x-2"
@@ -136,7 +128,46 @@ const Footer = () => {
                 <span className="relative z-10 font-montserrat">Subscribe</span>
                 <HiArrowRight className="w-4 h-4 relative z-10" />
               </button>
-            </form>
+            </form> */}
+            <div className="mt-4">
+              <div className="flex-col items-center gap-3 mb-2">
+                <div className="flex items-center gap-2 mb-2">
+                  <HiPhone className="w-5 h-5 text-primary" />
+                  Call Us:
+                </div>
+
+                <a href="tel:03218413284" 
+                target="_blank"
+                className="font-montserrat text-sm tracking-wide hover:underline">
+                  03218413284
+                </a>
+              </div>
+              <div className="flex-col items-center gap-3 mb-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <HiMail className="w-5 h-5 text-primary" />
+                  Email Us:
+                </div>
+                <a href="mailto:infinityconstructioncompany@gmail.com" 
+                target="_blank"
+                className="font-montserrat text-sm hover:underline">
+                  infinityconstructioncompany@gmail.com
+                </a>
+              </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex space-x-4">
+              {socialLinks.map((social, index) => (
+                <Link
+                  href={social.href}
+                  target="_blank"
+                  key={social.label}
+                  className="w-10 h-10 bg-primary/10 hover:bg-primary rounded-full flex items-center justify-center text-primary hover:text-white transition-all duration-300 border border-primary/20 hover:border-primary"
+                >
+                  <social.icon className="w-5 h-5" />
+                </Link>
+              ))}
+            </div>
 
             {/* Contact Info */}
             {/* <div className="mt-8 space-y-3">
@@ -164,13 +195,19 @@ const Footer = () => {
             <p className="text-sm text-foreground/60 font-montserrat">
               © Copyright 2024 Infinity Construction. All rights reserved.
             </p>
-            
+
             <div className="flex items-center space-x-4 text-sm text-foreground/60 font-montserrat">
-              <Link href="/terms-and-conditions" className="hover:text-primary transition-colors duration-300">
+              <Link
+                href="/terms-and-conditions"
+                className="hover:text-primary transition-colors duration-300"
+              >
                 Terms & Condition
               </Link>
               <span className="text-primary/30">|</span>
-              <Link href="/privacy-policy" className="hover:text-primary transition-colors duration-300">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-primary transition-colors duration-300"
+              >
                 Privacy Policy
               </Link>
             </div>
