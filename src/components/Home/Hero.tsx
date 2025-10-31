@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { HiArrowRight, HiPlay } from 'react-icons/hi';
+import Link from 'next/link';
 
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState('');
@@ -117,6 +118,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             {/* Primary CTA */}
+            <Link href="/contact">
             <motion.button
               whileHover={{ 
                 scale: 1.05,
@@ -141,8 +143,9 @@ const Hero = () => {
               />
               <HiArrowRight className="w-5 text-bold h-5 relative z-10" />
             </motion.button>
-
+            </Link>
             {/* Secondary CTA */}
+            <Link href="/portfolio">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -152,6 +155,7 @@ const Hero = () => {
               <HiPlay className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
               View Our Work
             </motion.button>
+            </Link>
           </motion.div>
 
         </div>
