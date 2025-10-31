@@ -13,28 +13,32 @@ export const residentialServicesData = {
     firstLine: "We don't just Build Homes,",
     secondLine: "We Craft Experiences"
   },
-  description: "From concept to comfort Infinity Construction Company delivers complete residential solutions that blend design, durability, and detail.",
+  description:
+    "From concept to comfort, Infinity Construction Company delivers complete residential solutions that combine design excellence, durability, and attention to detail.",
   services: [
     {
       icon: HiColorSwatch,
-      title: "Grey scale",
-      description: "Professional grey scale construction services that transform your residential space with modern aesthetics and timeless elegance. We deliver precision in every shade and finish.",
+      title: "Grey Scale",
+      description:
+        "Professional grey scale construction services that redefine your residential space with modern aesthetics and lasting elegance. Precision and perfection in every detail and finish.",
       color: "text-primary",
       bgColor: "bg-primary/10",
       borderColor: "border-primary/20"
     },
     {
       icon: HiHome,
-      title: "Interior & finishing",
-      description: "Complete interior design and finishing solutions that bring your vision to life. From concept to completion, we handle every detail with craftsmanship and attention to quality.",
+      title: "Interior & Finishing",
+      description:
+        "Complete interior design and finishing services that bring your vision to life. From concept to completion, we perfect every corner with craftsmanship and care.",
       color: "text-royal",
       bgColor: "bg-royal/10",
       borderColor: "border-royal/20"
     },
     {
       icon: HiCheckCircle,
-      title: "Turn-key solutions",
-      description: "End-to-end residential construction services from planning to final handover. We manage everything so you can move into your dream home with complete peace of mind.",
+      title: "Turn-Key Solutions",
+      description:
+        "End-to-end residential construction services from planning to handover. We handle every phase so you can move into your dream home with complete peace of mind.",
       color: "text-primary",
       bgColor: "bg-primary/10",
       borderColor: "border-primary/20"
@@ -42,27 +46,31 @@ export const residentialServicesData = {
     {
       icon: HiSparkles,
       title: "Furnishings",
-      description: "Curated furniture and furnishing solutions that complement your residential space. We source quality pieces that enhance comfort, style, and functionality.",
+      description:
+        "Tailored furniture and furnishing solutions that add character and comfort to your home. High-quality pieces that balance beauty, function, and lifestyle.",
       color: "text-royal",
       bgColor: "bg-royal/10",
       borderColor: "border-royal/20"
     },
     {
       icon: HiLightningBolt,
-      title: "Solar energy",
-      description: "Sustainable solar energy solutions for residential properties. Reduce your carbon footprint and energy costs with our professional solar panel installation services.",
+      title: "Solar Energy",
+      description:
+        "Sustainable solar power systems designed for modern homes. Lower your energy costs and environmental impact with our expert installation and support.",
       color: "text-primary",
       bgColor: "bg-primary/10",
       borderColor: "border-primary/20"
     },
     {
       icon: HiLightBulb,
-      title: "Electrical solutions",
-      description: "Comprehensive electrical services including wiring, lighting design, and smart home automation. Safe, efficient, and modern electrical solutions for your home.",
+      title: "Electrical Solutions",
+      description:
+        "Comprehensive residential electrical services including wiring, lighting, and smart home systems. Safe, efficient, and future-ready power solutions for your home.",
       color: "text-royal",
       bgColor: "bg-royal/10",
       borderColor: "border-royal/20"
     }
   ]
 };
+
 
