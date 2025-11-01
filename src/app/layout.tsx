@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import CTA from '@/components/layout/CTA';
+import WhatsAppButton from '@/components/layout/WhatsAppButton';
 
 
 const josefinSans = Josefin_Sans({
@@ -35,6 +36,7 @@ export default function RootLayout({
         {children}
         <CTA/>
         <Footer/>
+        <WhatsAppButton/>
       </body>
     </html>
   );
