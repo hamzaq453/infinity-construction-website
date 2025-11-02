@@ -8,10 +8,9 @@ import { HiOfficeBuilding, HiSparkles } from "react-icons/hi";
 const ClientLoo = () => {
   const clientLogos = [
     { name: "Descon", src: "/Infinity Clients/Descon.png", alt: "Descon" },
-    { name: "UOL", src: "/Infinity Clients/UOL.webp", alt: "UOL" },
+    { name: "UOL", src: "/Infinity Clients/UOL.png", alt: "UOL" },
     { name: "ARL", src: "/Infinity Clients/ARL.png", alt: "ARL" },
     { name: "Nishat", src: "/Infinity Clients/Nishat.png", alt: "Nishat" },
-    { name: "Emporium", src: "/Infinity Clients/Emporium.png", alt: "Emporium" },
     { name: "Mobilink", src: "/Infinity Clients/Mobilink.png", alt: "Mobilink" },
     { name: "Airlink", src: "/Infinity Clients/Airlink.png", alt: "Airlink" },
     { name: "Mobiserve", src: "/Infinity Clients/Mobiserve.jpg", alt: "Mobiserve" },
@@ -101,11 +100,7 @@ const ClientLoo = () => {
           className="relative w-full overflow-hidden"
         >
           {/* Light Background Container */}
-          <div className="bg-white/50 backdrop-blur-sm rounded-2xl h-40 flex items-center justify-center shadow-2xl relative w-full overflow-hidden">
-            {/* Gradient Overlays for fade effect */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r rounded-2xl from-primary/95 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l rounded-2xl from-primary/95 to-transparent z-10 pointer-events-none" />
-            
+          <div className="border-2 border-primary/20 rounded-2xl h-40 flex items-center justify-center relative w-full overflow-hidden">
             {/* Decorative corner elements */}
             <div className="absolute top-4 left-4 w-20 h-20 bg-primary/5 rounded-full blur-2xl" />
             <div className="absolute bottom-4 right-4 w-16 h-16 bg-royal/5 rounded-full blur-2xl" />
