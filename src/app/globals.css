@@ -121,6 +121,23 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hide scrollbars for Marquee components */
+.react-fast-marquee,
+.react-fast-marquee > div,
+.react-fast-marquee > div > div {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.react-fast-marquee::-webkit-scrollbar,
+.react-fast-marquee > div::-webkit-scrollbar,
+.react-fast-marquee > div > div::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
 
 
 
