@@ -25,64 +25,56 @@ const slides: CardContent[] = [
     content:
       `Infinity Construction delivered exceptional quality work on our residential project. Their attention to detail and professionalism exceeded our expectations. Highly recommended!`,
     avator: "/images/home/testimonials/avator1.png",
-    name: "Sarah Johnson",
-    designation: "Homeowner",
+    name: "Farasat Mahmood",
+    designation: "AWT Housing",
   },
   {
     stars: 5,
     content:
       `Outstanding commercial construction services. The team was punctual, professional, and delivered our office building ahead of schedule.`,
     avator: "/images/home/testimonials/avator1.png",
-    name: "Michael Chen",
-    designation: "Business Owner",
+    name: "Qadeer Mohammad",
+    designation: "Faazia Housing",
   },
   {
     stars: 5,
     content:
     `Excellent renovation work on our historic building. They preserved the original character while modernizing the infrastructure perfectly.`,
     avator: "/images/home/testimonials/avator1.png",
-    name: "Emily Rodriguez",
-    designation: "Property Manager",
+    name: "Syed Amjad Ahmad",
+    designation: "Canal Garden",
   },
   {
     stars: 5,
     content:
       `Professional, reliable, and skilled team. They transformed our vision into reality with exceptional craftsmanship and attention to detail.`,
     avator: "/images/home/testimonials/avator1.png",
-    name: "David Thompson",
-    designation: "Architect",
+    name: "Adeel Qureshi",
+    designation: "Phase 7 DHA",
   },
   {
     stars: 5,
     content:
     `Infinity Construction made our dream home a reality. Their expertise in custom construction and project management was outstanding.`,
     avator: "/images/home/testimonials/avator1.png",
-    name: "Lisa Anderson",
-    designation: "Homeowner",
+    name: "Usman Zia",
+    designation: "Phase 1 DHA",
   },
   {
     stars: 5,
     content:
     `Reliable, professional, and delivers quality work every time. They've been our go-to construction company for multiple projects.`,
     avator: "/images/home/testimonials/avator1.png",
-    name: "Robert Wilson",
-    designation: "Developer",
+    name: "Shahzad Ahmad",
+    designation: "Valencia",
   },
   {
     stars: 5,
     content:
     `Exceptional service from start to finish. The team's communication, quality of work, and project management were top-notch.`,
     avator: "/images/home/testimonials/avator1.png",
-    name: "Jennifer Martinez",
-    designation: "Property Owner",
-  },
-  {
-    stars: 5,
-    content:
-    `Outstanding construction quality and customer service. They completed our project on time and within budget. Highly satisfied!`,
-    avator: "/images/home/testimonials/avator1.png",
-    name: "James Brown",
-    designation: "Client",
+    name: "Javed Iqbal",
+    designation: "Sui Gas",
   },
 ];
 
