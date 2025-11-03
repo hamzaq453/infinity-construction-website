@@ -2,37 +2,55 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const OurValues: React.FC = () => {
-  const values = [
-    {
-      id: 1,
-      tag: "INNOVATION",
-      title: "Cutting-Edge Technology",
-      description:
-        "We leverage the latest technologies and methodologies to deliver innovative solutions that keep our clients ahead of the competition in today's rapidly evolving digital landscape.",
-    },
-    {
-      id: 2,
-      tag: "EXCELLENCE",
-      title: "Quality-First Approach",
-      description:
-        "Every project we undertake is executed with meticulous attention to detail and uncompromising quality standards, ensuring exceptional results that exceed client expectations.",
-    },
-    {
-      id: 3,
-      tag: "COLLABORATION",
-      title: "Partnership-Driven Success",
-      description:
-        "We believe in building strong, collaborative relationships with our clients, working closely as partners to understand their vision and transform it into digital reality.",
-    },
-    {
-      id: 4,
-      tag: "RELIABILITY",
-      title: "Trusted Technology Partner",
-      description:
-        "With years of experience and a proven track record, we provide reliable, scalable solutions that businesses can depend on for their long-term digital transformation goals.",
-    },
-  ];
+interface Value {
+  id: number;
+  tag: string;
+  title: string;
+  description: string;
+}
+
+interface ProcessProps {
+  values?: Value[];
+  heading?: string;
+  description?: string;
+}
+
+const defaultValues: Value[] = [
+  {
+    id: 1,
+    tag: "INNOVATION",
+    title: "Cutting-Edge Technology",
+    description:
+      "We leverage the latest technologies and methodologies to deliver innovative solutions that keep our clients ahead of the competition in today's rapidly evolving digital landscape.",
+  },
+  {
+    id: 2,
+    tag: "EXCELLENCE",
+    title: "Quality-First Approach",
+    description:
+      "Every project we undertake is executed with meticulous attention to detail and uncompromising quality standards, ensuring exceptional results that exceed client expectations.",
+  },
+  {
+    id: 3,
+    tag: "COLLABORATION",
+    title: "Partnership-Driven Success",
+    description:
+      "We believe in building strong, collaborative relationships with our clients, working closely as partners to understand their vision and transform it into digital reality.",
+  },
+  {
+    id: 4,
+    tag: "RELIABILITY",
+    title: "Trusted Technology Partner",
+    description:
+      "With years of experience and a proven track record, we provide reliable, scalable solutions that businesses can depend on for their long-term digital transformation goals.",
+  },
+];
+
+const OurValues: React.FC<ProcessProps> = ({ 
+  values = defaultValues,
+  heading = "Our Values",
+  description = "Explore what sets us apart and drives exceptional results for our clients"
+}) => {
 
   return (
     <section className="relative w-full py-24 bg-background text-foreground overflow-hidden">
@@ -120,7 +138,7 @@ const OurValues: React.FC = () => {
                   backgroundSize: "200% 200%",
                 }}
               >
-                Our Values
+                {heading}
               </motion.span>
               <motion.div
                 animate={{
@@ -145,8 +163,7 @@ const OurValues: React.FC = () => {
             viewport={{ once: true }}
             className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed font-montserrat"
           >
-            Explore what sets us apart and drives exceptional results for our
-            clients
+            {description}
           </motion.p>
         </motion.div>
 
@@ -458,3 +475,4 @@ const OurValues: React.FC = () => {
 };
 
 export default OurValues;
+export type { Value, ProcessProps };

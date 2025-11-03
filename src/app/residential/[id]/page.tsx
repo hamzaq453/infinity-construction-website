@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Hero from "@/components/Services/DetailPage/Hero";
 import Overview from "@/components/Services/DetailPage/Overview";
-import { industrialServicesData } from "@/components/Services/industrialData";
+import { residentialServicesData } from "@/components/Services/residentialData";
 import Process from "@/components/Services/DetailPage/Process";
 import Features from "@/components/Services/DetailPage/Features";
 import Offer from "@/components/abouts/Offer";
@@ -12,19 +12,19 @@ interface PageProps {
   };
 }
 
-const IndustrialDetailPage = ({ params }: PageProps) => {
+const ResidentialDetailPage = ({ params }: PageProps) => {
   const { id } = params;
   
   // Find service by slug
-  const service = industrialServicesData.services.find(
+  const service = residentialServicesData.services.find(
     (s) => s.slug === id
   );
 
   // If service not found, use fallback to general detail page
-  const detailData = service?.detailPage || industrialServicesData.detailPage;
+  const detailData = service?.detailPage || residentialServicesData.detailPage;
 
-  // If service doesn't exist and no fallback, redirect to general industrial page
-  if (!service && !industrialServicesData.detailPage) {
+  // If service doesn't exist and no fallback, redirect to general residential page
+  if (!service && !residentialServicesData.detailPage) {
     notFound();
   }
 
@@ -58,4 +58,5 @@ const IndustrialDetailPage = ({ params }: PageProps) => {
   );
 };
 
-export default IndustrialDetailPage;
+export default ResidentialDetailPage;
+

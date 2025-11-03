@@ -3,11 +3,13 @@
 import { motion } from "framer-motion";
 import { HiSparkles, HiArrowRight } from "react-icons/hi";
 import { IconType } from "react-icons";
+import Link from "next/link";
 import Offer from "../abouts/Offer";
 
 interface Service {
   icon: IconType;
   title: string;
+  slug?: string;
   description: string;
   color: string;
   bgColor: string;
@@ -22,9 +24,10 @@ interface ServicesListProps {
   };
   description: string;
   services: Service[];
+  serviceType?: "residential" | "industrial";
 }
 
-const ServicesList = ({ pageTitle, heading, description, services }: ServicesListProps) => {
+const ServicesList = ({ pageTitle, heading, description, services, serviceType = "residential" }: ServicesListProps) => {
   return (
     <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -72,6 +75,10 @@ const ServicesList = ({ pageTitle, heading, description, services }: ServicesLis
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
+            const detailPageUrl = service.slug 
+              ? `/${serviceType}/${service.slug}`
+              : `/${serviceType}`;
+            
             return (
               <motion.div
                 key={service.title}
@@ -83,42 +90,44 @@ const ServicesList = ({ pageTitle, heading, description, services }: ServicesLis
                   scale: 1.02,
                   transition: { duration: 0.3 }
                 }}
-                className="group cursor-pointer"
+                className="group"
               >
-                <div className={`bg-background/30 backdrop-blur-sm border ${service.borderColor} rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-primary/40 hover:shadow-xl`}>
-                  {/* Icon */}
-                  <motion.div
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                    className={`w-12 h-12 ${service.bgColor} rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300`}
-                  >
-                    <IconComponent className={`w-6 h-6 ${service.color} group-hover:text-primary transition-colors duration-300`} />
-                  </motion.div>
+                <Link href={detailPageUrl} className="block h-full">
+                  <div className={`bg-background/30 backdrop-blur-sm border ${service.borderColor} rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-primary/40 hover:shadow-xl cursor-pointer`}>
+                    {/* Icon */}
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                      className={`w-12 h-12 ${service.bgColor} rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300`}
+                    >
+                      <IconComponent className={`w-6 h-6 ${service.color} group-hover:text-primary transition-colors duration-300`} />
+                    </motion.div>
 
-                  {/* Title */}
-                  <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-4 font-josefin-sans group-hover:text-primary transition-colors duration-300">
-                    {service.title}
-                  </h3>
+                    {/* Title */}
+                    <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-4 font-josefin-sans group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
 
-                  {/* Description */}
-                  <p className="text-foreground/70 text-sm lg:text-base font-montserrat leading-relaxed mb-6 group-hover:text-foreground/90 transition-colors duration-300">
-                    {service.description}
-                  </p>
+                    {/* Description */}
+                    <p className="text-foreground/70 text-sm lg:text-base font-montserrat leading-relaxed mb-6 group-hover:text-foreground/90 transition-colors duration-300">
+                      {service.description}
+                    </p>
 
-                  {/* CTA Button */}
-                  <motion.div
-                    whileHover={{ x: 5 }}
-                    className="flex items-center hover:text-primary space-x-2 text-sm font-semibold font-montserrat text-foreground/80 group-hover:text-primary transition-colors duration-300"
-                  >
-                    <span>Explore More</span>
+                    {/* CTA Button */}
                     <motion.div
                       whileHover={{ x: 5 }}
-                      transition={{ duration: 0.2 }}
+                      className="flex items-center hover:text-primary space-x-2 text-sm font-semibold font-montserrat text-foreground/80 group-hover:text-primary transition-colors duration-300"
                     >
-                      <HiArrowRight className="w-4 h-4" />
+                      <span>Explore More</span>
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <HiArrowRight className="w-4 h-4" />
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
-                </div>
+                  </div>
+                </Link>
               </motion.div>
             );
           })}
