@@ -84,7 +84,7 @@ const Features = ({
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   {/* Box */}
-                  <div className="relative bg-background/90 backdrop-blur-sm border border-primary/10 rounded-[15%] p-[60px_40px] sm:p-[100px_40px_60px] shadow-[0_15px_45px_rgba(3,93,157,0.15)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(3,93,157,0.25)] h-full">
+                  <div className="relative bg-background/90 backdrop-blur-sm border border-primary/10 rounded-[15%] p-[75px_40px] sm:p-[100px_40px_60px] shadow-[0_15px_45px_rgba(3,93,157,0.15)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(3,93,157,0.25)] h-full">
                     {/* Animated Background Overlay */}
                     <motion.div
                       className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary to-royal rounded-[15%]"

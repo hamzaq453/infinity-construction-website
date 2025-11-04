@@ -23,7 +23,7 @@ const slides: CardContent[] = [
   {
     stars: 5,
     content:
-      `Infinity Construction delivered exceptional quality work on our residential project. Their attention to detail and professionalism exceeded our expectations. Highly recommended!`,
+      `Infinity Construction delivered quality work on our project. Their attention to detail exceeded expectations. Highly recommended!`,
     avator: "/images/home/testimonials/avator1.png",
     name: "Farasat Mahmood",
     designation: "AWT Housing",

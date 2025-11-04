@@ -62,13 +62,14 @@ const Navbar = () => {
             <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0">
               <Link
                 href="/"
-                className="text-foreground hover:text-primary transition-colors duration-300 z-10"
+                className="text-foreground hover:text-primary transition-colors   duration-300 z-10"
               >
                 <Image
                   src="/logo.png"
                   alt="Infinity Construction"
-                  width={200}
-                  height={200}
+                  width={180}
+                  height={180}
+                  className="w-36 h-36 lg:w-48 lg:h-48 object-contain"
                 />
               </Link>
             </motion.div>

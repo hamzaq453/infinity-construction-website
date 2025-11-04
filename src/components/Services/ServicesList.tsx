@@ -27,7 +27,13 @@ interface ServicesListProps {
   serviceType?: "residential" | "industrial";
 }
 
-const ServicesList = ({ pageTitle, heading, description, services, serviceType = "residential" }: ServicesListProps) => {
+const ServicesList = ({
+  pageTitle,
+  heading,
+  description,
+  services,
+  serviceType = "residential",
+}: ServicesListProps) => {
   return (
     <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -46,7 +52,9 @@ const ServicesList = ({ pageTitle, heading, description, services, serviceType =
             className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full mb-6"
           >
             <HiSparkles className="w-5 h-5 text-primary" />
-            <span className="text-primary font-medium font-montserrat">{pageTitle}</span>
+            <span className="text-primary font-medium font-montserrat">
+              {pageTitle}
+            </span>
           </motion.div>
 
           {/* Main Heading */}
@@ -75,32 +83,36 @@ const ServicesList = ({ pageTitle, heading, description, services, serviceType =
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
-            const detailPageUrl = service.slug 
+            const detailPageUrl = service.slug
               ? `/${serviceType}/${service.slug}`
               : `/${serviceType}`;
-            
+
             return (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   scale: 1.02,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 className="group"
               >
                 <Link href={detailPageUrl} className="block h-full">
-                  <div className={`bg-background/30 backdrop-blur-sm border ${service.borderColor} rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-primary/40 hover:shadow-xl cursor-pointer`}>
+                  <div
+                    className={`bg-background/30 backdrop-blur-sm border ${service.borderColor} rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:border-primary/40 hover:shadow-xl cursor-pointer`}
+                  >
                     {/* Icon */}
                     <motion.div
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.6 }}
                       className={`w-12 h-12 ${service.bgColor} rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300`}
                     >
-                      <IconComponent className={`w-6 h-6 ${service.color} group-hover:text-primary transition-colors duration-300`} />
+                      <IconComponent
+                        className={`w-6 h-6 ${service.color} group-hover:text-primary transition-colors duration-300`}
+                      />
                     </motion.div>
 
                     {/* Title */}
@@ -141,4 +153,3 @@ const ServicesList = ({ pageTitle, heading, description, services, serviceType =
 };
 
 export default ServicesList;
-

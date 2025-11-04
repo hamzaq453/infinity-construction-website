@@ -69,7 +69,7 @@ const CoreValues = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-16"
+      className="py-10"
     >
       <div className="text-center mb-16">
         <motion.h2

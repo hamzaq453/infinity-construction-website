@@ -5,8 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 const CEOSection: React.FC = () => {
   return (
-    <section className="min-h-screen bg-background py-16 lg:py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-background py-10 relative">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* CEO Image */}
           <motion.div
