@@ -46,22 +46,40 @@ const Contact2 = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setSubmitStatus("success");
-
-    // Reset form after success
-    setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      setSubmitStatus("idle");
-    }, 3000);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        // Reset form after success
+        setTimeout(() => {
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          });
+          setSubmitStatus("idle");
+        }, 3000);
+      } else {
+        setSubmitStatus("error");
+        console.error('Error:', data.error);
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+      console.error('Network error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialLinks = [
@@ -279,7 +297,13 @@ const Contact2 = () => {
               >
                 <motion.span
                   className="relative z-10 flex items-center justify-center space-x-2"
-                  animate={isSubmitting ? { opacity: 0.8 } : { opacity: 1 }}
+                  animate={
+                    submitStatus === "success" || submitStatus === "error"
+                      ? { opacity: 0 }
+                      : isSubmitting
+                      ? { opacity: 0.8 }
+                      : { opacity: 1 }
+                  }
                 >
                   {isSubmitting ? (
                     <>
@@ -306,11 +330,11 @@ const Contact2 = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="absolute inset-0 bg-green-500 flex items-center justify-center"
+                    className="absolute inset-0 z-20 bg-green-500 flex items-center justify-center"
                   >
                     <div className="flex items-center space-x-2">
-                      <HiCheckCircle className="w-4 h-4" />
-                      <span>Sent!</span>
+                      <HiCheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="text-sm sm:text-base">Message Sent</span>
                     </div>
                   </motion.div>
                 )}
@@ -319,11 +343,11 @@ const Contact2 = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="absolute inset-0 bg-red-500 flex items-center justify-center"
+                    className="absolute inset-0 z-20 bg-red-500 flex items-center justify-center"
                   >
                     <div className="flex items-center space-x-2">
-                      <HiExclamationCircle className="w-4 h-4" />
-                      <span>Error!</span>
+                      <HiExclamationCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="text-sm sm:text-base">Error!</span>
                     </div>
                   </motion.div>
                 )}
