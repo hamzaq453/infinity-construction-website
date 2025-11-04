@@ -107,37 +107,14 @@ const Contact2 = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background py-24 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-background py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold text-foreground mb-4 font-josefin-sans"
-          >
-            Let's <span className="text-primary">Connect</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg text-foreground/70 font-montserrat max-w-2xl mx-auto"
-          >
-            Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-          </motion.p>
-        </motion.div> */}
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8"
+          className="relative pt-8 sm:pt-12 pb-12 sm:pb-16 md:pb-20"
         >
           <div className="max-w-7xl mx-auto">
             <div className="text-center">
@@ -145,10 +122,10 @@ const Contact2 = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full mb-6"
+                className="inline-flex items-center space-x-2 bg-primary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
               >
-                <HiSparkles className="w-5 h-5 text-primary" />
-                <span className="text-primary font-medium font-montserrat">
+                <HiSparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-xs sm:text-sm text-primary font-medium font-montserrat">
                   Get In Touch
                 </span>
               </motion.div>
@@ -157,7 +134,7 @@ const Contact2 = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-5xl md:text-7xl font-bold text-foreground mb-6 font-josefin-sans"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-4 sm:mb-6 font-josefin-sans leading-tight"
               >
                 Let's Build Something
                 <br />
@@ -170,7 +147,7 @@ const Contact2 = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-xl text-foreground/70 max-w-3xl mx-auto font-montserrat"
+                className="text-base sm:text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto font-montserrat px-4 sm:px-0"
               >
                 Ready to transform your vision into reality? Our expert team is
                 here to bring your construction dreams to life with precision,
@@ -208,82 +185,82 @@ const Contact2 = () => {
           </div>
         </motion.section>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
           {/* Contact Form - Minimal Design */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div>
-              <h2 className="text-2xl font-semibold text-foreground mb-2 font-josefin-sans">
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-2 font-josefin-sans">
                 Send Message
               </h2>
-              <p className="text-foreground/60 font-montserrat">
+              <p className="text-sm sm:text-base text-foreground/60 font-montserrat">
                 We'll get back to you within 24 hours.
               </p>
             </div>
 
             <motion.form
               onSubmit={handleSubmit}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               {/* Name Field */}
-              <motion.div whileFocus={{ scale: 1.02 }} className="group">
+              <motion.div whileFocus={{ scale: 1.01 }} className="group">
                 <label className="block text-sm font-medium text-foreground/80 mb-2 font-montserrat">
                   Name
                 </label>
                 <div className="relative">
-                  <HiUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary/50 w-5 h-5 group-focus-within:text-primary transition-colors duration-300" />
+                  <HiUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary/50 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-primary transition-colors duration-300" />
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 bg-transparent border border-foreground/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-300 font-montserrat"
+                    className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent border border-foreground/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-300 font-montserrat"
                     placeholder="Your name"
                   />
                 </div>
               </motion.div>
 
               {/* Email Field */}
-              <motion.div whileFocus={{ scale: 1.02 }} className="group">
+              <motion.div whileFocus={{ scale: 1.01 }} className="group">
                 <label className="block text-sm font-medium text-foreground/80 mb-2 font-montserrat">
                   Email
                 </label>
                 <div className="relative">
-                  <HiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary/50 w-5 h-5 group-focus-within:text-primary transition-colors duration-300" />
+                  <HiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary/50 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-primary transition-colors duration-300" />
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 bg-transparent border border-foreground/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-300 font-montserrat"
+                    className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent border border-foreground/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-300 font-montserrat"
                     placeholder="your@email.com"
                   />
                 </div>
               </motion.div>
 
               {/* Message Field */}
-              <motion.div whileFocus={{ scale: 1.02 }} className="group">
+              <motion.div whileFocus={{ scale: 1.01 }} className="group">
                 <label className="block text-sm font-medium text-foreground/80 mb-2 font-montserrat">
                   Message
                 </label>
                 <div className="relative">
-                  <HiChatAlt2 className="absolute left-3 top-4 text-primary/50 w-5 h-5 group-focus-within:text-primary transition-colors duration-300" />
+                  <HiChatAlt2 className="absolute left-3 top-3 sm:top-4 text-primary/50 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-primary transition-colors duration-300" />
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full pl-12 pr-4 py-3 bg-transparent border border-foreground/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-300 font-montserrat resize-none"
+                    className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base bg-transparent border border-foreground/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-300 font-montserrat resize-none"
                     placeholder="Tell us about your project..."
                   />
                 </div>
@@ -298,7 +275,7 @@ const Contact2 = () => {
                   boxShadow: "0 10px 30px rgba(3, 93, 157, 0.2)",
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-primary hover:bg-royal text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed font-montserrat"
+                className="w-full bg-primary hover:bg-royal text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed font-montserrat"
               >
                 <motion.span
                   className="relative z-10 flex items-center justify-center space-x-2"
@@ -315,12 +292,12 @@ const Contact2 = () => {
                         }}
                         className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
                       />
-                      <span>Sending...</span>
+                      <span className="text-sm sm:text-base">Sending...</span>
                     </>
                   ) : (
                     <>
-                      <HiChatAlt2 className="w-4 h-4" />
-                      <span>Send Message</span>
+                      <HiChatAlt2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="text-sm sm:text-base">Send Message</span>
                     </>
                   )}
                 </motion.span>
@@ -366,19 +343,19 @@ const Contact2 = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8 mt-8 lg:mt-0"
           >
             <div>
-              <h2 className="text-2xl font-semibold text-foreground mb-2 font-josefin-sans">
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-2 font-josefin-sans">
                 Get In Touch
               </h2>
-              <p className="text-foreground/60 font-montserrat">
+              <p className="text-sm sm:text-base text-foreground/60 font-montserrat">
                 Reach out to us through any of these channels.
               </p>
             </div>
 
             {/* Contact Info Cards */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {contactInfo.map((info, index) => (
                 <motion.a
                   key={info.label}
@@ -386,23 +363,23 @@ const Contact2 = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 * index }}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className="block p-4 bg-transparent border border-foreground/10 rounded-lg hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 group"
+                  whileHover={{ scale: 1.01, x: 5 }}
+                  className="block p-3 sm:p-4 bg-transparent border border-foreground/10 rounded-lg hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 group"
                   target="_blank"
                 >
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-3 sm:space-x-4">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors duration-300"
+                      className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0"
                     >
-                      <info.icon className="w-5 h-5" />
+                      <info.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </motion.div>
-                    <div>
-                      <p className="text-sm text-foreground/60 font-montserrat">
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs sm:text-sm text-foreground/60 font-montserrat mb-1">
                         {info.label}
                       </p>
-                      <p className="text-foreground font-medium font-montserrat">
+                      <p className="text-xs sm:text-base text-foreground font-medium font-montserrat break-words">
                         {info.value}
                       </p>
                     </div>
@@ -416,12 +393,12 @@ const Contact2 = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="pt-8 border-t border-foreground/10"
+              className="pt-6 sm:pt-8 border-t border-foreground/10"
             >
-              <h3 className="text-lg font-semibold text-foreground mb-4 font-josefin-sans">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4 font-josefin-sans">
                 Follow Us
               </h3>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
@@ -430,16 +407,16 @@ const Contact2 = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: 0.1 * index }}
                     whileHover={{
-                      scale: 1.1,
+                      scale: 1.05,
                       y: -2,
                       boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
                     }}
                     whileTap={{ scale: 0.95 }}
-                    className={`p-3 rounded-lg bg-transparent border border-foreground/10 text-foreground/60 ${social.color} transition-all duration-300 hover:border-primary/30 hover:bg-primary/5 group`}
+                    className={`p-2.5 sm:p-3 rounded-lg bg-transparent border border-foreground/10 text-foreground/60 ${social.color} transition-all duration-300 hover:border-primary/30 hover:bg-primary/5 group flex items-center justify-center`}
                     title={social.label}
                     target="_blank"
                   >
-                    <social.icon className="w-5 h-5 mx-auto" />
+                    <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </motion.a>
                 ))}
               </div>

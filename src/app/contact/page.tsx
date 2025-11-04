@@ -10,9 +10,11 @@ export default function ContactPage() {
     {/* <Contact1 /> */}
     <Contact2 />
     {/* <Contact3 /> */}
-    <div className="mb-16 max-w-6xl mx-auto">
-      <Offer/>
-    </div>
+    <section className="relative px-4 py-12 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <Offer />
+        </div>
+      </section>
     </>
   );
 };

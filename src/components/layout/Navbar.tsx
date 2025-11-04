@@ -44,6 +44,12 @@ const Navbar = () => {
     setIsServicesDropdownOpen(false);
   };
 
+  // Handle mobile menu link click - closes menu for all links
+  const handleMobileLinkClick = () => {
+    setIsMobileMenuOpen(false);
+    setIsServicesDropdownOpen(false);
+  };
+
   return (
     <>
       <motion.nav
@@ -338,44 +344,43 @@ const Navbar = () => {
                           >
                             {item.dropdown.map(
                               (dropdownItem, dropdownIndex) => (
-                                <>
-                                <Link href={dropdownItem.href} key={dropdownItem.name}>
-                                <motion.button
+                                <Link 
+                                  href={dropdownItem.href} 
                                   key={dropdownItem.name}
-                                  initial={{ opacity: 0, x: 20 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{
-                                    delay: dropdownIndex * 0.1,
-                                    duration: 0.2,
-                                  }}
-                                  whileHover={{ x: 10 }}
-                                  whileTap={{ x: 0 }}
-                                  onClick={() =>
-                                    scrollToSection(dropdownItem.href)
-                                  }
-                                  className="w-full text-left text-foreground/80 transition-all duration-300 py-2 text-base relative group flex items-center px-4"
+                                  onClick={handleMobileLinkClick}
                                 >
-                                  {/* Animated arrow on the left - only visible on hover */}
-                                  <div className="absolute left-4 w-4 h-4 flex items-center justify-center opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
-                                    <svg
-                                      className="w-4 h-4 text-primary"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9 5l7 7-7 7"
-                                      />
-                                    </svg>
-                                  </div>
-                                  <span className="relative z-10 group-hover:translate-x-6 transition-transform duration-200">
-                                    {dropdownItem.name}
-                                  </span>
-                                </motion.button></Link>
-                                </>
+                                  <motion.button
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                      delay: dropdownIndex * 0.1,
+                                      duration: 0.2,
+                                    }}
+                                    whileHover={{ x: 10 }}
+                                    whileTap={{ x: 0 }}
+                                    className="w-full text-left text-foreground/80 transition-all duration-300 py-2 text-base relative group flex items-center px-4"
+                                  >
+                                    {/* Animated arrow on the left - only visible on hover */}
+                                    <div className="absolute left-4 w-4 h-4 flex items-center justify-center opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
+                                      <svg
+                                        className="w-4 h-4 text-primary"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                      >
+                                        <path
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          strokeWidth={2}
+                                          d="M9 5l7 7-7 7"
+                                        />
+                                      </svg>
+                                    </div>
+                                    <span className="relative z-10 group-hover:translate-x-6 transition-transform duration-200">
+                                      {dropdownItem.name}
+                                    </span>
+                                  </motion.button>
+                                </Link>
                               )
                             )}
                           </motion.div>
@@ -383,11 +388,10 @@ const Navbar = () => {
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <Link href={item.href}>
+                    <Link href={item.href} onClick={handleMobileLinkClick}>
                       <motion.button
                         whileHover={{ x: 5 }}
                         whileTap={{ x: 0 }}
-                        onClick={() => scrollToSection(item.href)}
                         className="block w-full text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-3 text-lg relative group"
                       >
                         <span className="relative z-10">{item.name}</span>
@@ -404,7 +408,7 @@ const Navbar = () => {
               ))}
 
               {/* Mobile CTA Button */}
-              <Link href="/contact">
+              <Link href="/contact" onClick={handleMobileLinkClick}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -417,7 +421,6 @@ const Navbar = () => {
                       boxShadow: "0 10px 30px rgba(3, 93, 157, 0.3)",
                     }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => scrollToSection("#contact")}
                     className="w-full bg-primary hover:bg-royal text-white px-6 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg relative overflow-hidden group"
                   >
                     <motion.span

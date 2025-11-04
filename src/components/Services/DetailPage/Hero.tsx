@@ -147,7 +147,7 @@ const Hero = ({
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             {/* Primary CTA */}
-            <Link href={ctaLink}>
+            <Link href="/portfolio">
               <motion.button
                 whileHover={{
                   scale: 1.05,
@@ -161,7 +161,7 @@ const Hero = ({
                   whileHover={{ y: -1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {ctaText}
+                  View Our Work
                 </motion.span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-primary to-royal opacity-0 group-hover:opacity-100"
