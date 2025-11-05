@@ -17,35 +17,36 @@ const PortfolioPage = () => {
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
 
   const portfolioImages = [
+    // Existing images from new folder
     {
-      id: "pic1",
+      id: "new-commercial-2",
       src: "/portfolio/new/Commercial-2.png",
-      title: "Modern Residential Complex",
+      title: "Modern Commercial Complex",
       category: "Commercial",
-      description: "A stunning modern residential complex featuring contemporary architecture and sustainable design.",
-      size: "large", // large, medium, small
-      featured: false
+      description: "A stunning modern commercial complex featuring contemporary architecture and sustainable design.",
+      size: "large",
+      featured: true
     },
     {
-      id: "pic2", 
+      id: "new-residential-1", 
       src: "/portfolio/new/Residential-1.png",
-      title: "Commercial Office Building",
+      title: "Modern Residential Project",
       category: "Residential",
-      description: "State-of-the-art commercial office building with glass facade and modern amenities.",
+      description: "Beautiful residential project with modern amenities and elegant design.",
       size: "medium",
-      featured: false
+      featured: true
     },
     {
-      id: "pic3",
+      id: "new-industrial-1",
       src: "/portfolio/new/Industrial-1.jpg", 
-      title: "Luxury Villa",
+      title: "Industrial Facility",
       category: "Industrial",
-      description: "Elegant luxury villa with premium finishes and panoramic views.",
+      description: "State-of-the-art industrial facility with advanced infrastructure.",
       size: "medium",
-      featured: false
+      featured: true
     },
     {
-      id: "pic4",
+      id: "new-industrial-4",
       src: "/portfolio/new/Industrial-4.jpeg",
       title: "Industrial Warehouse",
       category: "Industrial", 
@@ -54,58 +55,428 @@ const PortfolioPage = () => {
       featured: false
     },
     {
-      id: "pic5",
+      id: "new-residential-2",
       src: "/portfolio/new/Residential-2.png",
-      title: "Shopping Mall",
+      title: "Residential Development",
       category: "Residential",
-      description: "Multi-level shopping mall with modern retail spaces and entertainment areas.",
+      description: "Modern residential development with premium amenities.",
       size: "medium",
       featured: false
     },
     {
-      id: "pic6",
+      id: "new-commercial-1",
       src: "/portfolio/new/Commercial-1.jpg",
-      title: "Apartment Complex",
+      title: "Commercial Building",
       category: "Commercial",
-      description: "High-rise apartment complex with premium amenities and city views.",
+      description: "High-rise commercial building with premium amenities and city views.",
       size: "medium",
       featured: false
     },
     {
-      id: "pic7",
+      id: "new-residential-3",
       src: "/portfolio/new/Residential-3.png",
-      title: "Industrial Warehouse",
+      title: "Residential Complex",
       category: "Residential",
-      description: "Massive industrial warehouse facility with advanced logistics infrastructure.",
+      description: "Elegant residential complex with modern architecture.",
       size: "large",
       featured: false
     },
     {
-      id: "pic8",
+      id: "new-industrial-2",
       src: "/portfolio/new/Industrial-2.jpg",
+      title: "Industrial Plant",
+      category: "Industrial",
+      description: "Modern industrial plant facility with advanced systems.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "new-commercial-3",
+      src: "/portfolio/new/Commercial-3.png",
+      title: "Commercial Office",
+      category: "Commercial",
+      description: "Modern commercial office building with glass facade.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "new-industrial-3",
+      src: "/portfolio/new/Industrial-3.jpg",
+      title: "Industrial Structure",
+      category: "Industrial",
+      description: "Robust industrial structure with advanced engineering.",
+      size: "small",
+      featured: false
+    },
+    // pic1 through pic15
+    {
+      id: "pic1",
+      src: "/portfolio/pic1.jpeg",
+      title: "Commercial Office Building",
+      category: "Commercial",
+      description: "Modern commercial office building with glass facade and premium amenities.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic2",
+      src: "/portfolio/pic2.jpeg",
+      title: "Industrial Facility One",
+      category: "Industrial",
+      description: "Large-scale industrial facility with advanced infrastructure.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic3",
+      src: "/portfolio/pic3.jpeg",
+      title: "Residential Project Two",
+      category: "Residential",
+      description: "Modern residential development with premium finishes.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic4",
+      src: "/portfolio/pic4.jpeg",
+      title: "Industrial Complex",
+      category: "Industrial",
+      description: "Comprehensive industrial complex with state-of-the-art facilities.",
+      size: "large",
+      featured: false
+    },
+    {
+      id: "pic5",
+      src: "/portfolio/pic5.jpeg",
+      title: "Commercial Shopping Center",
+      category: "Commercial",
+      description: "Modern commercial shopping center with retail spaces.",
+      size: "small",
+      featured: false
+    },
+    { 
+      id: "pic6",
+      src: "/portfolio/pic6.jpeg",
       title: "Industrial Warehouse",
       category: "Industrial",
-      description: "Massive industrial warehouse facility with advanced logistics infrastructure.",
+      description: "Massive warehouse facility with modern logistics systems.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic7",
+      src: "/portfolio/pic7.jpeg",
+      title: "Residential Development",
+      category: "Residential",
+      description: "Modern residential development with quality construction.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic8",
+      src: "/portfolio/pic8.jpeg",
+      title: "Industrial Structure",
+      category: "Industrial",
+      description: "Robust industrial structure built to last.",
       size: "small",
       featured: false
     },
     {
       id: "pic9",
-      src: "/portfolio/new/Commercial-3.png",
-      title: "Industrial Warehouse",
+      src: "/portfolio/pic9.jpeg",
+      title: "Commercial Building",
       category: "Commercial",
-      description: "Massive industrial warehouse facility with advanced logistics infrastructure.",
+      description: "Modern commercial building with contemporary architecture.",
       size: "small",
       featured: false
-    }
-    ,
+    },
     {
       id: "pic10",
-      src: "/portfolio/new/Industrial-3.jpg",
-      title: "Industrial Warehouse",
+      src: "/portfolio/pic10.jpeg",
+      title: "Industrial Plant",
       category: "Industrial",
-      description: "Massive industrial warehouse facility with advanced logistics infrastructure.",
+      description: "Advanced industrial plant with modern equipment.",
       size: "small",
+      featured: false
+    },
+    {
+      id: "pic11",
+      src: "/portfolio/pic11.jpeg",
+      title: "Residential Project Three",
+      category: "Residential",
+      description: "Quality residential project with attention to detail.",
+      size: "large",
+      featured: false
+    },
+    {
+      id: "pic12",
+      src: "/portfolio/pic12.jpeg",
+      title: "Industrial Facility Two",
+      category: "Industrial",
+      description: "Large industrial facility with advanced systems.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic13",
+      src: "/portfolio/pic13.jpeg",
+      title: "Commercial Complex",
+      category: "Commercial",
+      description: "Modern commercial complex with premium facilities.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic14",
+      src: "/portfolio/pic14.jpeg",
+      title: "Industrial Complex Two",
+      category: "Industrial",
+      description: "Comprehensive industrial complex with modern infrastructure.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic15",
+      src: "/portfolio/pic15.jpeg",
+      title: "Residential Development Two",
+      category: "Residential",
+      description: "Quality residential development with premium features.",
+      size: "small",
+      featured: false
+    },
+    // pic-a through pic-z
+    {
+      id: "pic-a",
+      src: "/portfolio/pic-a.jpeg",
+      title: "Commercial Building A",
+      category: "Commercial",
+      description: "Modern commercial building with contemporary architecture.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-b",
+      src: "/portfolio/pic-b.jpeg",
+      title: "Residential Project A",
+      category: "Residential",
+      description: "Beautiful residential project with modern architecture.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-c",
+      src: "/portfolio/pic-c.jpeg",
+      title: "Industrial Facility C",
+      category: "Industrial",
+      description: "Large industrial facility with robust construction.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-d",
+      src: "/portfolio/pic-d.jpeg",
+      title: "Commercial Office Complex",
+      category: "Commercial",
+      description: "Modern commercial office complex with premium facilities.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-e",
+      src: "/portfolio/pic-e.jpeg",
+      title: "Commercial Retail Center",
+      category: "Commercial",
+      description: "Modern commercial retail center with modern design.",
+      size: "large",
+      featured: false
+    },
+    {
+      id: "pic-f",
+      src: "/portfolio/pic-f.jpeg",
+      title: "Residential Building A",
+      category: "Residential",
+      description: "Elegant residential building with contemporary design.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic-g",
+      src: "/portfolio/pic-g.jpeg",
+      title: "Industrial Project G",
+      category: "Industrial",
+      description: "Modern industrial project with advanced infrastructure.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic-h",
+      src: "/portfolio/pic-h.jpeg",
+      title: "Residential Development A",
+      category: "Residential",
+      description: "Quality residential development with premium amenities.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic-i",
+      src: "/portfolio/pic-i.jpeg",
+      title: "Commercial Mall",
+      category: "Commercial",
+      description: "Modern commercial mall with retail and entertainment spaces.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic-j",
+      src: "/portfolio/pic-l.jpeg",
+      title: "Residential Project B",
+      category: "Residential",
+      description: "Beautiful residential project with modern design.",
+      size: "large",
+      featured: false
+    },
+    {
+      id: "pic-k",
+      src: "/portfolio/pic-k.jpeg",
+      title: "Industrial Facility K",
+      category: "Industrial",
+      description: "Large-scale industrial facility with advanced systems.",
+      size: "large",
+      featured: false
+    },
+    {
+      id: "pic-l",
+      src: "/portfolio/pic-j.jpeg",
+      title: "Commercial Building B",
+      category: "Commercial",
+      description: "Modern commercial building with premium amenities.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-m",
+      src: "/portfolio/pic-m.jpeg",
+      title: "Industrial Structure M",
+      category: "Industrial",
+      description: "Robust industrial structure built for durability.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-n",
+      src: "/portfolio/pic-n.jpeg",
+      title: "Residential Complex B",
+      category: "Residential",
+      description: "Beautiful residential complex with quality construction.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-o",
+      src: "/portfolio/pic-o.jpeg",
+      title: "Industrial Plant O",
+      category: "Industrial",
+      description: "Advanced industrial plant with modern equipment.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-p",
+      src: "/portfolio/pic-p.jpeg",
+      title: "Commercial Plaza",
+      category: "Commercial",
+      description: "Modern commercial plaza with retail and office spaces.",
+      size: "large",
+      featured: false
+    },
+    {
+      id: "pic-q",
+      src: "/portfolio/pic-q.jpeg",
+      title: "Industrial Facility Q",
+      category: "Industrial",
+      description: "Large industrial facility with advanced infrastructure.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic-r",
+      src: "/portfolio/pic-r.jpeg",
+      title: "Residential Project C",
+      category: "Residential",
+      description: "Quality residential project with modern architecture.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic-s",
+      src: "/portfolio/pic-s.jpeg",
+      title: "Industrial Complex S",
+      category: "Industrial",
+      description: "Comprehensive industrial complex with modern systems.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic-t",
+      src: "/portfolio/pic-t.jpeg",
+      title: "Commercial Office Building",
+      category: "Commercial",
+      description: "Modern commercial office building with glass facade.",
+      size: "small",
+      featured: false
+    },
+    {
+      id: "pic-u",
+      src: "/portfolio/pic-u.jpeg",
+      title: "Industrial Structure U",
+      category: "Industrial",
+      description: "Modern industrial structure with advanced engineering.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-v",
+      src: "/portfolio/pic-v.jpeg",
+      title: "Residential Complex C",
+      category: "Residential",
+      description: "Beautiful residential complex with quality finishes.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-w",
+      src: "/portfolio/pic-w.jpeg",
+      title: "Commercial Center",
+      category: "Commercial",
+      description: "Modern commercial center with retail and business spaces.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-x",
+      src: "/portfolio/pic-x.jpeg",
+      title: "Residential Development C",
+      category: "Residential",
+      description: "Modern residential development with premium amenities.",
+      size: "medium",
+      featured: false
+    },
+    {
+      id: "pic-y",
+      src: "/portfolio/pic-y.jpeg",
+      title: "Commercial Building C",
+      category: "Commercial",
+      description: "Modern commercial building with contemporary design.",
+      size: "large",
+      featured: false
+    },
+    {
+      id: "pic-z",
+      src: "/portfolio/pic-z.jpeg",
+      title: "Residential Project D",
+      category: "Residential",
+      description: "Quality residential project with elegant design.",
+      size: "large",
       featured: false
     }
   ];
@@ -368,6 +739,7 @@ const PortfolioPage = () => {
                     className="absolute bottom-0 left-0 right-0 p-4 text-white z-10"
                   >
                     <h3 className="text-lg font-bold mb-1 font-josefin-sans">
+                      {image.id}<br></br>
                       {image.title}
                     </h3>
                     {/* <p className="text-sm text-white/80 mb-3 font-montserrat line-clamp-2">
