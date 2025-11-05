@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { HiArrowRight, HiHome, HiOfficeBuilding, HiCog, HiUsers } from "react-icons/hi";
 import { useState, useEffect } from "react";
-
+import Link from "next/link";
 const Service = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
 
@@ -41,7 +41,8 @@ const Service = () => {
       borderColor: "border-primary/20",
       hoverColor: "hover:border-primary/40",
       iconBg: "bg-primary/10",
-      iconColor: "text-primary"
+      iconColor: "text-primary",
+      href: "/residential"
     },
     {
       title: "Industrial Construction",
@@ -53,7 +54,8 @@ const Service = () => {
       borderColor: "border-royal/20",
       hoverColor: "hover:border-royal/40",
       iconBg: "bg-royal/10",
-      iconColor: "text-royal"
+      iconColor: "text-royal",
+      href: "/industrial"
     }
   ];
 
@@ -131,7 +133,9 @@ const Service = () => {
             {serviceCategories.map((category, index) => {
               const IconComponent = category.icon;
               return (
-              <motion.div
+             <>
+             <Link href={category.href}>
+             <motion.div
                   key={category.title}
                   initial={{ opacity: 0, y: 30 }}
                   animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -141,7 +145,6 @@ const Service = () => {
                     scale: 1.02,
                     transition: { duration: 0.3, ease: "easeOut" }
                   }}
-                  onClick={() => handleCategoryClick(category.title)}
                   className={`group cursor-pointer relative overflow-hidden rounded-2xl border-2 ${category.borderColor} ${category.hoverColor} transition-all duration-500 hover:shadow-2xl`}
                 >
                   {/* Background Gradient */}
@@ -237,7 +240,8 @@ const Service = () => {
                     whileHover={{ scale: 1, opacity: 0.1 }}
                     transition={{ duration: 0.3 }}
                   />
-              </motion.div>
+              </motion.div></Link>
+             </>
               );
             })}
           </motion.div>

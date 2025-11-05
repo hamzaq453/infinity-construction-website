@@ -11,6 +11,7 @@ const IndustrialPage = () => {
         heading={industrialServicesData.heading}
         description={industrialServicesData.description}
         services={industrialServicesData.services}
+        serviceType="industrial"
       />
     </>
   );

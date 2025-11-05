@@ -6,6 +6,7 @@ import Service from "@/components/Home/Service";
 import ProjectSection from "@/components/Home/ProjectSlider/ProjectSection";
 import Project1 from "@/components/Home/Project/Project1";
 import Offer from "@/components/abouts/Offer";
+import ClientLoo from "@/components/Home/ClientLoo";
 export default function Home() {
   return (
     <>
@@ -13,12 +14,15 @@ export default function Home() {
       <main>
         <Hero />
         {/* <About/> */}
+        <ClientLoo />
         <About1 />
         <Service />
         {/* <ProjectSection /> */}
-        <div className="mt-16 max-w-6xl mx-auto">
-          <Offer />
-        </div>
+        <section className="relative px-4 py-12 sm:px-6 lg:px-8 bg-background">
+          <div className="max-w-7xl mx-auto">
+            <Offer />
+          </div>
+        </section>
         <Project1 />
         <Testimonials />
       </main>

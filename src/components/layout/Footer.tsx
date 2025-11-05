@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   HiArrowRight,
   HiMail,
@@ -10,6 +10,8 @@ import {
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import { industrialServicesData } from "@/components/Services/industrialData";
+import { residentialServicesData } from "@/components/Services/residentialData";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -21,13 +23,26 @@ const Footer = () => {
     setEmail("");
   };
 
-  const services = [
-    "Building Construction",
-    "Architecture Design",
-    "Building Renovation",
-    "Flooring & Roofing",
-    "Building Maintenance",
-  ];
+  // Get 5 random services from both industrial and residential data
+  const services = useMemo(() => {
+    // Combine all services from both arrays
+    const allServices = [
+      ...industrialServicesData.services.map((service) => ({
+        title: service.title,
+        slug: service.slug,
+        type: "industrial" as const,
+      })),
+      ...residentialServicesData.services.map((service) => ({
+        title: service.title,
+        slug: service.slug,
+        type: "residential" as const,
+      })),
+    ];
+
+    // Shuffle array and get 5 random services
+    const shuffled = [...allServices].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 5);
+  }, []);
 
   const navigationLinks = [
     { name: "Home", href: "/" },
@@ -37,10 +52,26 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: FaFacebook, href: "https://www.facebook.com/InfinityCCPK", label: "Facebook" },
-    { icon: FaTwitter, href: "https://twitter.com/infinityCCPK", label: "Twitter" },
-    { icon: FaInstagram, href: "https://www.instagram.com/infinityccpk/", label: "Instagram" },
-    { icon: FaLinkedin, href: "https://www.linkedin.com/company/infinityccpk", label: "LinkedIn" },
+    {
+      icon: FaFacebook,
+      href: "https://www.facebook.com/InfinityCCPK",
+      label: "Facebook",
+    },
+    {
+      icon: FaTwitter,
+      href: "https://twitter.com/infinityCCPK",
+      label: "Twitter",
+    },
+    {
+      icon: FaInstagram,
+      href: "https://www.instagram.com/infinityccpk/",
+      label: "Instagram",
+    },
+    {
+      icon: FaLinkedin,
+      href: "https://www.linkedin.com/company/infinityccpk",
+      label: "LinkedIn",
+    },
   ];
 
   return (
@@ -74,15 +105,14 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
-                <li
-                  key={service}
-                  className={`text-sm font-montserrat transition-colors duration-300 cursor-pointer ${
-                    index === 0
-                      ? "text-primary font-semibold"
-                      : "text-foreground/70 hover:text-primary"
-                  }`}
-                >
-                  {service}
+                <li key={`${service.type}-${service.slug}`}>
+                  <Link
+                    href={`/${service.type}/${service.slug}`}
+                    className={`text-sm font-montserrat transition-colors duration-300 cursor-pointer block text-foreground/70 hover:text-primary
+                    `}
+                  >
+                    {service.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -108,7 +138,6 @@ const Footer = () => {
 
           {/* Newsletter Subscription */}
           <div className="lg:col-span-1">
-
             {/* <form onSubmit={handleNewsletterSubmit} className="space-y-4 mb-4">
               <div className="relative">
                 <input
@@ -136,9 +165,11 @@ const Footer = () => {
                   Call Us:
                 </div>
 
-                <a href="tel:03218413284" 
-                target="_blank"
-                className="font-montserrat text-sm tracking-wide hover:underline">
+                <a
+                  href="tel:03218413284"
+                  target="_blank"
+                  className="font-montserrat text-sm tracking-wide hover:underline"
+                >
                   03218413284
                 </a>
               </div>
@@ -147,9 +178,11 @@ const Footer = () => {
                   <HiMail className="w-5 h-5 text-primary" />
                   Email Us:
                 </div>
-                <a href="mailto:infinityconstructioncompany@gmail.com" 
-                target="_blank"
-                className="font-montserrat text-sm hover:underline">
+                <a
+                  href="mailto:infinityconstructioncompany@gmail.com"
+                  target="_blank"
+                  className="font-montserrat text-sm hover:underline"
+                >
                   infinityconstructioncompany@gmail.com
                 </a>
               </div>

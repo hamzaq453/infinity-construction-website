@@ -95,9 +95,9 @@ const About1 = () => {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-10  lg:items-start items-center">
           {/* Left Side - Statistics */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={
-              hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+              hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
             }
             transition={{ duration: 0.8, delay: 0.3 }}
             className="space-y-6 w-[80%]"
@@ -174,8 +174,8 @@ const About1 = () => {
 
           {/* Right Side - Proven Performance */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            initial={{ opacity: 0, y: -50 }}
+            animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-center lg:text-left"
           >

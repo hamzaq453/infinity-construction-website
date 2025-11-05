@@ -49,7 +49,7 @@ const CTA = () => {
       />
       
       {/* Dark Overlay for better text contrast */}
-      <div className="absolute inset-0 bg-background/5 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-background/20 backdrop-blur-[3px]" />
       
       {/* Gradient Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/30" />
@@ -90,7 +90,7 @@ const CTA = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row lg:flex-col gap-4 w-full sm:w-auto lg:w-auto"
+            className="flex flex-row justify-center items-center"
           >
             {/* Primary CTA Button - "Get Started" */}
             {/* <motion.button
