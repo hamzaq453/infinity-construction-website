@@ -4,7 +4,8 @@ import {
   HiCheckCircle,
   HiSparkles,
   HiLightningBolt,
-  HiLightBulb
+  HiLightBulb,
+  HiRefresh
 } from "react-icons/hi";
 
 export const residentialServicesData = {
@@ -641,6 +642,111 @@ export const residentialServicesData = {
               number: "03",
               title: "Complete Service",
               description: "From installation to maintenance, we provide comprehensive electrical services ensuring safe, efficient, and reliable power for your home.",
+            },
+          ]
+        }
+      }
+    },
+    {
+      icon: HiRefresh,
+      title: "Renovation",
+      slug: "renovation",
+      description:
+        "Transform your existing home with comprehensive renovation services. From partial updates to complete home makeovers, we breathe new life into your living spaces.",
+      color: "text-primary",
+      bgColor: "bg-primary/10",
+      borderColor: "border-primary/20",
+      detailPage: {
+        hero: {
+          title: "Residential Renovation Services",
+          tagline: "Transform your existing home with comprehensive renovation services. From partial updates to complete home makeovers, we breathe new life into your living spaces.",
+          ctaText: "Get a Quote",
+          ctaLink: "/contact"
+        },
+        overview: {
+          heading: "Complete Renovation Solutions",
+          description: "Infinity Construction Company provides comprehensive residential renovation services. Our expert team transforms your existing home with quality craftsmanship and attention to detail.",
+          services: [
+            {
+              title: "Home Assessment",
+              description: "Comprehensive assessment of your existing home to identify renovation opportunities and create a detailed renovation plan.",
+              icon: "home"
+            },
+            {
+              title: "Kitchen Renovation",
+              description: "Complete kitchen remodeling services including cabinets, countertops, flooring, and modern appliances for your dream kitchen.",
+              icon: "home"
+            },
+            {
+              title: "Bathroom Renovation",
+              description: "Professional bathroom remodeling with modern fixtures, tiling, plumbing upgrades, and elegant finishing touches.",
+              icon: "home"
+            },
+            {
+              title: "Room Remodeling",
+              description: "Transform any room in your home with professional remodeling services including bedrooms, living rooms, and dining areas.",
+              icon: "check"
+            },
+            {
+              title: "Structural Improvements",
+              description: "Structural renovation services including wall removal, room additions, and layout modifications to maximize your space.",
+              icon: "cog"
+            },
+            {
+              title: "Finishing & Decoration",
+              description: "Complete finishing and decoration services that add style and personality to your renovated spaces.",
+              icon: "sparkles"
+            }
+          ]
+        },
+        process: {
+          heading: "Our Renovation Excellence",
+          description: "We transform your existing home with comprehensive renovation services that combine quality craftsmanship with modern design, breathing new life into your living spaces.",
+          values: [
+            {
+              id: 1,
+              tag: "TRANSFORMATION",
+              title: "Complete Home Makeovers",
+              description: "From partial updates to complete home transformations, we provide renovation services that breathe new life into your existing home.",
+            },
+            {
+              id: 2,
+              tag: "CRAFTSMANSHIP",
+              title: "Quality Renovation Work",
+              description: "Every renovation project is executed with quality craftsmanship and attention to detail, ensuring your home looks and feels brand new.",
+            },
+            {
+              id: 3,
+              tag: "DESIGN",
+              title: "Modern Design Solutions",
+              description: "Our renovation services combine modern design trends with your personal style, creating spaces that are both beautiful and functional.",
+            },
+            {
+              id: 4,
+              tag: "VALUE",
+              title: "Increased Home Value",
+              description: "Professional renovation services not only enhance your living experience but also significantly increase your home's value and market appeal.",
+            },
+          ]
+        },
+        features: {
+          heading: "Why Choose Our Renovation Services",
+          description: "Experience excellence in residential renovation with our comprehensive transformation solutions.",
+          features: [
+            {
+              number: "01",
+              title: "Complete Transformation",
+              description: "From kitchen and bathroom renovations to complete home makeovers, we provide comprehensive renovation services for every space.",
+            },
+            {
+              number: "02",
+              title: "Quality Craftsmanship",
+              description: "Every renovation project is executed with quality craftsmanship and attention to detail, ensuring lasting beauty and functionality.",
+            },
+            {
+              number: "03",
+              title: "Modern Design",
+              description: "Our renovation services combine modern design trends with your personal style, creating spaces that reflect your lifestyle and preferences.",
             },
           ]
         }
